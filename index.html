@@ -76,7 +76,8 @@
         <input type="text" id="fBrand" placeholder="Nike, Adidas, Jordan…" />
       </label>
       <label>Modèle *
-        <input type="text" id="fModel" placeholder="Air Jordan 1 Retro High" required />
+        <input type="text" id="fModel" list="modelSuggestions" placeholder="Air Jordan 1 Retro High" required autocomplete="off" />
+        <datalist id="modelSuggestions"></datalist>
       </label>
       <label>Coloris
         <input type="text" id="fColorway" placeholder="Chicago / White Black Red" />

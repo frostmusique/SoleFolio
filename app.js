@@ -1,5 +1,25 @@
 const STORAGE_KEY = "solefolio_items_v1";
 
+// Catalogue de modèles populaires pour l'autocomplétion (brand + colorway se remplissent seuls)
+const CATALOG = [
+  { model: "Air Jordan 1 Retro High Chicago", brand: "Jordan", colorway: "White / Black / Varsity Red" },
+  { model: "Air Jordan 1 Retro High Bred", brand: "Jordan", colorway: "Black / Varsity Red" },
+  { model: "Air Jordan 1 Retro High Royal", brand: "Jordan", colorway: "Black / Royal Blue / White" },
+  { model: "Air Jordan 4 Retro Bred", brand: "Jordan", colorway: "Black / Cement Grey / Fire Red" },
+  { model: "Air Jordan 4 Retro White Cement", brand: "Jordan", colorway: "White / Fire Red / Black" },
+  { model: "Air Jordan 11 Retro Concord", brand: "Jordan", colorway: "White / Black / Concord" },
+  { model: "Nike Dunk Low Panda", brand: "Nike", colorway: "Black / White" },
+  { model: "Nike Air Max 1 University Red", brand: "Nike", colorway: "White / University Red" },
+  { model: "Nike Air Force 1 '07 White", brand: "Nike", colorway: "White / White" },
+  { model: "Nike SB Dunk Low Travis Scott", brand: "Nike", colorway: "Cactus Jack" },
+  { model: "Adidas Yeezy Boost 350 V2 Zebra", brand: "Adidas", colorway: "White / Core Black / Red" },
+  { model: "Adidas Yeezy Boost 350 V2 Bred", brand: "Adidas", colorway: "Core Black / Red" },
+  { model: "Adidas Samba OG", brand: "Adidas", colorway: "Cloud White / Core Black" },
+  { model: "New Balance 550 White Green", brand: "New Balance", colorway: "White / Green" },
+  { model: "New Balance 990v5", brand: "New Balance", colorway: "Grey" },
+  { model: "Nike Air Max 97 Silver Bullet", brand: "Nike", colorway: "Silver / White" },
+];
+
 const $ = (id) => document.getElementById(id);
 
 let items = load();
@@ -225,6 +245,20 @@ $("sneakerForm").addEventListener("submit", (e) => {
   persist();
   closeModal();
   render();
+});
+
+function populateCatalog() {
+  const datalist = $("modelSuggestions");
+  datalist.innerHTML = CATALOG.map((c) => `<option value="${c.model}"></option>`).join("");
+}
+populateCatalog();
+
+$("fModel").addEventListener("input", (e) => {
+  const match = CATALOG.find((c) => c.model.toLowerCase() === e.target.value.toLowerCase());
+  if (match) {
+    if (!$("fBrand").value) $("fBrand").value = match.brand;
+    if (!$("fColorway").value) $("fColorway").value = match.colorway;
+  }
 });
 
 $("searchInput").addEventListener("input", (e) => {
