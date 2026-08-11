@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SoleFolio — Ton portfolio sneakers</title>
+<meta name="theme-color" content="#FAF6F2" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="assets/logo.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <img src="assets/logo.png" alt="SoleFolio" class="brand-mark" />
+  </div>
+  <button id="addBtn" class="btn-primary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+    Ajouter
+  </button>
+</header>
+
+<main class="container">
+
+  <section class="stats">
+    <div class="stat-card">
+      <p class="stat-label">Investi</p>
+      <p class="stat-value" id="statInvested">0 €</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Valeur marché</p>
+      <p class="stat-value" id="statValue">0 €</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Plus-value</p>
+      <p class="stat-value" id="statGain">0 €</p>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <input type="search" id="searchInput" placeholder="Rechercher une paire…" />
+    <select id="sortSelect">
+      <option value="recent">Plus récent</option>
+      <option value="gain">Plus-value ↓</option>
+      <option value="value">Valeur marché ↓</option>
+      <option value="name">Nom A→Z</option>
+    </select>
+  </div>
+
+  <div id="emptyState" class="empty-state" hidden>
+    <p>Aucune paire pour l'instant.</p>
+    <p class="empty-sub">Ajoute ta première sneaker pour démarrer ton portfolio.</p>
+  </div>
+
+  <div id="grid" class="grid"></div>
+
+</main>
+
+<!-- Modal -->
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Ajouter une paire</h2>
+      <button id="closeModal" class="icon-btn" aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <form id="sneakerForm" class="modal-body">
+      <input type="hidden" id="itemId" />
+
+      <label>Marque
+        <input type="text" id="fBrand" placeholder="Nike, Adidas, Jordan…" />
+      </label>
+      <label>Modèle *
+        <input type="text" id="fModel" placeholder="Air Jordan 1 Retro High" required />
+      </label>
+      <label>Coloris
+        <input type="text" id="fColorway" placeholder="Chicago / White Black Red" />
+      </label>
+      <div class="row2">
+        <label>Taille (EU)
+          <input type="text" id="fSize" placeholder="42" />
+        </label>
+        <label>Quantité
+          <input type="number" id="fQuantity" min="1" value="1" />
+        </label>
+      </div>
+      <label>URL de l'image
+        <input type="url" id="fImage" placeholder="https://…" />
+      </label>
+      <div class="row2">
+        <label>Date d'achat
+          <input type="date" id="fDate" />
+        </label>
+        <label>Prix d'achat (€) — optionnel
+          <input type="number" id="fPurchase" min="0" placeholder="150" />
+        </label>
+      </div>
+      <label>Prix marché actuel (€) — optionnel
+        <input type="number" id="fMarket" min="0" placeholder="220" />
+      </label>
+      <label>Notes
+        <textarea id="fNotes" rows="2" placeholder="Deadstock, box damaged…"></textarea>
+      </label>
+
+      <button type="submit" class="btn-primary btn-full">Enregistrer</button>
+    </form>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

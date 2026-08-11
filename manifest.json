@@ -1,0 +1,12 @@
+{
+  "name": "SoleFolio",
+  "short_name": "SoleFolio",
+  "description": "Ton portfolio sneakers",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FAF6F2",
+  "theme_color": "#FAF6F2",
+  "icons": [
+    { "src": "assets/logo.png", "sizes": "800x699", "type": "image/png" }
+  ]
+}
