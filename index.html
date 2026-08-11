@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
 </head>
 <body>
 
@@ -71,6 +72,15 @@
     </div>
     <form id="sneakerForm" class="modal-body">
       <input type="hidden" id="itemId" />
+
+      <div class="scan-block">
+        <label for="scanInput" class="btn-scan">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M20 8V6a2 2 0 00-2-2h-2M20 16v2a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          Scanner l'étiquette de la boîte
+        </label>
+        <input type="file" id="scanInput" accept="image/*" capture="environment" hidden />
+        <p id="scanStatus" class="scan-status" hidden></p>
+      </div>
 
       <label>Marque
         <input type="text" id="fBrand" placeholder="Nike, Adidas, Jordan…" />

@@ -328,6 +328,32 @@ body{
 .modal-body textarea{resize:none;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
+.scan-block{margin-bottom:4px;}
+.btn-scan{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1.5px dashed var(--lilac);
+  background:rgba(201,182,224,0.12);
+  color:var(--lilac-dark);
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.scan-status{
+  margin:8px 0 0;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-family:'IBM Plex Mono',monospace;
+}
+.scan-status.found{color:var(--sage-dark);}
+.scan-status.notfound{color:var(--loss);}
+
 @media(max-width:480px){
   .stats{grid-template-columns:1fr 1fr 1fr;gap:8px;}
   .stat-value{font-size:15px;}

@@ -2,22 +2,22 @@ const STORAGE_KEY = "solefolio_items_v1";
 
 // Catalogue de modèles populaires pour l'autocomplétion (brand + colorway se remplissent seuls)
 const CATALOG = [
-  { model: "Air Jordan 1 Retro High Chicago", brand: "Jordan", colorway: "White / Black / Varsity Red" },
-  { model: "Air Jordan 1 Retro High Bred", brand: "Jordan", colorway: "Black / Varsity Red" },
-  { model: "Air Jordan 1 Retro High Royal", brand: "Jordan", colorway: "Black / Royal Blue / White" },
-  { model: "Air Jordan 4 Retro Bred", brand: "Jordan", colorway: "Black / Cement Grey / Fire Red" },
-  { model: "Air Jordan 4 Retro White Cement", brand: "Jordan", colorway: "White / Fire Red / Black" },
-  { model: "Air Jordan 11 Retro Concord", brand: "Jordan", colorway: "White / Black / Concord" },
-  { model: "Nike Dunk Low Panda", brand: "Nike", colorway: "Black / White" },
-  { model: "Nike Air Max 1 University Red", brand: "Nike", colorway: "White / University Red" },
-  { model: "Nike Air Force 1 '07 White", brand: "Nike", colorway: "White / White" },
-  { model: "Nike SB Dunk Low Travis Scott", brand: "Nike", colorway: "Cactus Jack" },
-  { model: "Adidas Yeezy Boost 350 V2 Zebra", brand: "Adidas", colorway: "White / Core Black / Red" },
-  { model: "Adidas Yeezy Boost 350 V2 Bred", brand: "Adidas", colorway: "Core Black / Red" },
-  { model: "Adidas Samba OG", brand: "Adidas", colorway: "Cloud White / Core Black" },
-  { model: "New Balance 550 White Green", brand: "New Balance", colorway: "White / Green" },
-  { model: "New Balance 990v5", brand: "New Balance", colorway: "Grey" },
-  { model: "Nike Air Max 97 Silver Bullet", brand: "Nike", colorway: "Silver / White" },
+  { model: "Air Jordan 1 Retro High Chicago", brand: "Jordan", colorway: "White / Black / Varsity Red", sku: "555088-101", year: "2015", retail: 160 },
+  { model: "Air Jordan 1 Retro High Bred", brand: "Jordan", colorway: "Black / Varsity Red", sku: "555088-001", year: "2016", retail: 160 },
+  { model: "Air Jordan 1 Retro High Royal", brand: "Jordan", colorway: "Black / Royal Blue / White", sku: "555088-007", year: "2017", retail: 160 },
+  { model: "Air Jordan 4 Retro Bred", brand: "Jordan", colorway: "Black / Cement Grey / Fire Red", sku: "308497-060", year: "2019", retail: 200 },
+  { model: "Air Jordan 4 Retro White Cement", brand: "Jordan", colorway: "White / Fire Red / Black", sku: "840606-192", year: "2016", retail: 190 },
+  { model: "Air Jordan 11 Retro Concord", brand: "Jordan", colorway: "White / Black / Concord", sku: "378037-100", year: "2018", retail: 220 },
+  { model: "Nike Dunk Low Panda", brand: "Nike", colorway: "Black / White", sku: "DD1391-100", year: "2021", retail: 110 },
+  { model: "Nike Air Max 1 University Red", brand: "Nike", colorway: "White / University Red", sku: "908375-103", year: "2018", retail: 140 },
+  { model: "Nike Air Force 1 '07 White", brand: "Nike", colorway: "White / White", sku: "315122-111", year: "2007", retail: 110 },
+  { model: "Nike SB Dunk Low Travis Scott", brand: "Nike", colorway: "Cactus Jack", sku: "CT5053-001", year: "2020", retail: 150 },
+  { model: "Adidas Yeezy Boost 350 V2 Zebra", brand: "Adidas", colorway: "White / Core Black / Red", sku: "CP9654", year: "2017", retail: 220 },
+  { model: "Adidas Yeezy Boost 350 V2 Bred", brand: "Adidas", colorway: "Core Black / Red", sku: "CP9652", year: "2017", retail: 220 },
+  { model: "Adidas Samba OG", brand: "Adidas", colorway: "Cloud White / Core Black", sku: "B75806", year: "2018", retail: 100 },
+  { model: "New Balance 550 White Green", brand: "New Balance", colorway: "White / Green", sku: "BB550WT1", year: "2021", retail: 120 },
+  { model: "New Balance 990v5", brand: "New Balance", colorway: "Grey", sku: "M990GL5", year: "2019", retail: 185 },
+  { model: "Nike Air Max 97 Silver Bullet", brand: "Nike", colorway: "Silver / White", sku: "884421-001", year: "2017", retail: 175 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -194,6 +194,8 @@ function attachCardEvents() {
 }
 
 function openModal(item) {
+  $("scanStatus").hidden = true;
+  $("scanInput").value = "";
   $("modalTitle").textContent = item ? "Modifier la paire" : "Ajouter une paire";
   $("itemId").value = item ? item.id : "";
   $("fBrand").value = item?.brand || "";
@@ -245,6 +247,62 @@ $("sneakerForm").addEventListener("submit", (e) => {
   persist();
   closeModal();
   render();
+});
+
+function findBySku(text) {
+  const cleaned = text.toUpperCase();
+  // formats: 555088-101, DD1391-100, CP9654, M990GL5...
+  const patterns = [
+    /\b[A-Z]{0,3}\d{4,6}-\d{2,3}\b/g,
+    /\b[A-Z]{1,2}\d{4,6}\b/g,
+  ];
+  const candidates = new Set();
+  patterns.forEach((re) => {
+    const found = cleaned.match(re);
+    if (found) found.forEach((f) => candidates.add(f));
+  });
+  for (const code of candidates) {
+    const match = CATALOG.find((c) => c.sku && c.sku.toUpperCase() === code);
+    if (match) return match;
+  }
+  return null;
+}
+
+function setScanStatus(msg, kind) {
+  const el = $("scanStatus");
+  el.hidden = false;
+  el.textContent = msg;
+  el.className = "scan-status" + (kind ? " " + kind : "");
+}
+
+$("scanInput").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  setScanStatus("Analyse de l'étiquette en cours…");
+  try {
+    const { data } = await Tesseract.recognize(file, "eng");
+    const text = data.text || "";
+    const match = findBySku(text);
+    if (match) {
+      $("fModel").value = match.model;
+      $("fBrand").value = match.brand;
+      $("fColorway").value = match.colorway;
+      const extras = [`SKU ${match.sku}`, match.year ? `sortie ${match.year}` : null, match.retail ? `retail ${match.retail}€` : null]
+        .filter(Boolean).join(" · ");
+      if (!$("fNotes").value) $("fNotes").value = extras;
+      setScanStatus(`✓ Trouvé : ${match.model} (${extras})`, "found");
+    } else {
+      const skuGuess = text.match(/\b[A-Z0-9]{5,10}-?\d{0,3}\b/i);
+      setScanStatus(
+        skuGuess
+          ? `Pas de correspondance pour "${skuGuess[0]}". Donne-moi ce code en conversation, je l'ajoute au catalogue.`
+          : "Étiquette illisible, réessaie avec plus de lumière ou remplis manuellement.",
+        "notfound"
+      );
+    }
+  } catch (err) {
+    setScanStatus("Erreur pendant l'analyse, réessaie ou remplis manuellement.", "notfound");
+  }
 });
 
 function populateCatalog() {
