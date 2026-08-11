@@ -2,6 +2,7 @@ const STORAGE_KEY = "solefolio_items_v1";
 
 // Catalogue de modèles populaires pour l'autocomplétion (brand + colorway se remplissent seuls)
 const CATALOG = [
+  { model: "Air Jordan 1 Retro Chicago (2013)", brand: "Jordan", colorway: "White / Varsity Red / Black", sku: "332550-163", year: "2013", retail: 110 },
   { model: "Air Jordan 1 Retro High Chicago", brand: "Jordan", colorway: "White / Black / Varsity Red", sku: "555088-101", year: "2015", retail: 160 },
   { model: "Air Jordan 1 Retro High Bred", brand: "Jordan", colorway: "Black / Varsity Red", sku: "555088-001", year: "2016", retail: 160 },
   { model: "Air Jordan 1 Retro High Royal", brand: "Jordan", colorway: "Black / Royal Blue / White", sku: "555088-007", year: "2017", retail: 160 },
