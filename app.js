@@ -31,6 +31,7 @@ const CATALOG = [
   { model: "Adidas Yeezy Boost 350 V2 Bred OG", brand: "Adidas", colorway: "Core Black / Red", sku: "BY9612", year: "2016", retail: 200 },
   { model: "Adidas Yeezy Boost 350 V2 Dazzling Blue", brand: "Adidas", colorway: "Core Black / Dazzling Blue", sku: "GY7164", year: "2021", retail: 230 },
   { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2018", retail: 150 },
+  { model: "Adidas Yeezy Foam RNNR MX Cinder", brand: "Adidas", colorway: "MX Cinder (brown/tan)", sku: "ID4126", year: "2022", retail: 90 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -50,6 +51,7 @@ const INITIAL_STOCK = [
   { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (OG 2016)", colorway: "Core Black / Red", size: "41⅓", sku: "BY9612", retail: 200 },
   { brand: "Adidas", model: "Yeezy Boost 350 V2 Dazzling Blue", colorway: "Core Black / Dazzling Blue", size: "41⅓", sku: "GY7164", retail: 230 },
   { brand: "Adidas", model: "Yeezy Boost 700 V1 Kids Wave Runner", colorway: "Magnet Grey / White / Black", size: "31", sku: "FU9005", retail: 150 },
+  { brand: "Adidas", model: "Yeezy Foam RNNR MX Cinder", colorway: "MX Cinder (brown/tan)", size: "40⅔", sku: "ID4126", retail: 90 },
 ];
 
 function seedInitialStockIfEmpty() {
