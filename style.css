@@ -131,8 +131,8 @@ body{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:10px;
 }
 
 .ticket{
@@ -358,4 +358,28 @@ body{
   .stats{grid-template-columns:1fr 1fr 1fr;gap:8px;}
   .stat-value{font-size:15px;}
   .brand-name{font-size:17px;}
+
+  .grid{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .ticket{border-radius:12px;}
+  .ticket-image{padding:0;}
+  .ticket-image img{padding:8px;}
+  .ticket-actions{top:4px;right:4px;gap:4px;}
+  .icon-btn{width:22px;height:22px;}
+  .icon-btn svg{width:10px;height:10px;}
+  .ticket-body{padding:8px 8px 10px;gap:6px;}
+  .ticket-brand{font-size:8.5px;}
+  .ticket-model{
+    font-size:12px;
+    line-height:1.15;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .ticket-meta{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .ticket-divider{font-size:9px;padding-top:6px;}
+  .price-label{font-size:8px;}
+  .price-value{font-size:11px;}
+  .gain-badge{padding:5px 6px;font-size:10px;flex-direction:column;align-items:flex-start;gap:2px;}
+  .gain-badge .lbl{font-size:8px;}
 }
