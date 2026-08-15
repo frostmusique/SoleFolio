@@ -19,9 +19,62 @@ const CATALOG = [
   { model: "New Balance 550 White Green", brand: "New Balance", colorway: "White / Green", sku: "BB550WT1", year: "2021", retail: 120 },
   { model: "New Balance 990v5", brand: "New Balance", colorway: "Grey", sku: "M990GL5", year: "2019", retail: 185 },
   { model: "Nike Air Max 97 Silver Bullet", brand: "Nike", colorway: "Silver / White", sku: "884421-001", year: "2017", retail: 175 },
+  { model: "Nike Air Max 1 Twine Baroque Brown", brand: "Nike", colorway: "Twine / Baroque Brown", sku: "DA4302-700", year: "2021", retail: 150 },
+  { model: "Nike Air Max 1 SP Concepts Oil Green", brand: "Nike", colorway: "Oil Green / Multi-Color / Sail", sku: "DN1803-300", year: "2022", retail: 180 },
+  { model: "Adidas YZY Foam RNR Carbon", brand: "Adidas", colorway: "Carbon / Carbon / Carbon", sku: "IG5349", year: "2022", retail: 90 },
+  { model: "Nike Air VaporMax FK Moc 2 ACRONYM", brand: "Nike", colorway: "Black / Black / Volt", sku: "AQ0996-007", year: "2018", retail: 300 },
+  { model: "Nike Air Force 1 '07 Lemon Wash", brand: "Nike", colorway: "Lemon Wash / Lemon Wash", sku: "DZ4483-700", year: "2022", retail: 110 },
+  { model: "Adidas Yeezy Boost 350 V2 Beluga Reflective", brand: "Adidas", colorway: "Grey / Solar Red", sku: "GW1229", year: "2021", retail: 230 },
+  { model: "Adidas Yeezy Boost 350 V2 Oreo", brand: "Adidas", colorway: "Core Black / White", sku: "BY1604", year: "2017", retail: 220 },
+  { model: "Adidas Yeezy 700 V3 Azael", brand: "Adidas", colorway: "Azael", sku: "FW4980", year: "2021", retail: 220 },
+  { model: "Adidas Yeezy Boost 700 Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "B75571", year: "2017", retail: 300 },
+  { model: "Adidas Yeezy Boost 350 V2 Bred OG", brand: "Adidas", colorway: "Core Black / Red", sku: "BY9612", year: "2016", retail: 200 },
+  { model: "Adidas Yeezy Boost 350 V2 Dazzling Blue", brand: "Adidas", colorway: "Core Black / Dazzling Blue", sku: "GY7164", year: "2021", retail: 230 },
+  { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2018", retail: 150 },
 ];
 
 const $ = (id) => document.getElementById(id);
+
+// Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
+const INITIAL_STOCK = [
+  { brand: "Nike", model: "Air Max 1 Twine Baroque Brown", colorway: "Twine / Baroque Brown", size: "41", sku: "DA4302-700", retail: 150 },
+  { brand: "Nike", model: "Air Max 1 SP Concepts Oil Green", colorway: "Oil Green / Multi-Color / Sail", size: "41", sku: "DN1803-300", retail: 180 },
+  { brand: "Adidas", model: "YZY Foam RNR Carbon", colorway: "Carbon / Carbon / Carbon", size: "40⅔", sku: "IG5349", retail: 90 },
+  { brand: "Nike", model: "Air VaporMax FK Moc 2 / ACRONYM", colorway: "Black / Black / Volt", size: "41", sku: "AQ0996-007", retail: 300 },
+  { brand: "Nike", model: "Air Force 1 '07 Lemon Wash", colorway: "Lemon Wash / Lemon Wash", size: "41", sku: "DZ4483-700", retail: 110 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (restock)", colorway: "Core Black / Red", size: "42", sku: "CP9652", retail: 220 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Beluga Reflective", colorway: "Grey / Solar Red", size: "41⅓", sku: "GW1229", retail: 230 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Oreo", colorway: "Core Black / White", size: "41⅓", sku: "BY1604", retail: 220 },
+  { brand: "Adidas", model: "Yeezy 700 V3 Azael", colorway: "Azael", size: "41⅓", sku: "FW4980", retail: 220 },
+  { brand: "Adidas", model: "Yeezy Boost 700 Wave Runner", colorway: "Magnet Grey / White / Black", size: "41⅓", sku: "B75571", retail: 300 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (OG 2016)", colorway: "Core Black / Red", size: "41⅓", sku: "BY9612", retail: 200 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Dazzling Blue", colorway: "Core Black / Dazzling Blue", size: "41⅓", sku: "GY7164", retail: 230 },
+  { brand: "Adidas", model: "Yeezy Boost 700 V1 Kids Wave Runner", colorway: "Magnet Grey / White / Black", size: "31", sku: "FU9005", retail: 150 },
+];
+
+function seedInitialStockIfEmpty() {
+  const already = localStorage.getItem(STORAGE_KEY);
+  const seedFlag = localStorage.getItem("solefolio_seeded_v1");
+  if (already || seedFlag) return;
+  const now = Date.now();
+  const seeded = INITIAL_STOCK.map((s, i) => ({
+    id: (now + i).toString(),
+    createdAt: now + i,
+    brand: s.brand,
+    model: s.model,
+    colorway: s.colorway,
+    size: s.size,
+    quantity: 1,
+    imageUrl: "",
+    purchaseDate: "",
+    purchasePrice: "",
+    marketPrice: "",
+    notes: `SKU ${s.sku} · retail ${s.retail}€ (approximatif)`,
+  }));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(seeded));
+  localStorage.setItem("solefolio_seeded_v1", "1");
+}
+seedInitialStockIfEmpty();
 
 let items = load();
 let currentSort = "recent";
