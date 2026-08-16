@@ -49,6 +49,7 @@ const IMAGES_BY_SKU = {
   "CP9652": "assets/cp9652.jpeg",
   "DZ4493-700": "assets/dz4493.jpeg",
   "AQ0996-007": "assets/aq0996.jpeg",
+  "IG5349": "assets/ig5349.jpeg",
 };
 
 // Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
