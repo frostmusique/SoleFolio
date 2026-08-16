@@ -14,43 +14,43 @@ const CATALOG = [
   { model: "Nike Air Force 1 '07 White", brand: "Nike", colorway: "White / White", sku: "315122-111", year: "2007", retail: 110 },
   { model: "Nike SB Dunk Low Travis Scott", brand: "Nike", colorway: "Cactus Jack", sku: "CT5053-001", year: "2020", retail: 150 },
   { model: "Adidas Yeezy Boost 350 V2 Zebra", brand: "Adidas", colorway: "White / Core Black / Red", sku: "CP9654", year: "2017", retail: 220 },
-  { model: "Adidas Yeezy Boost 350 V2 Bred", brand: "Adidas", colorway: "Core Black / Red", sku: "CP9652", year: "2017", retail: 220 },
+  { model: "Adidas Yeezy Boost 350 V2 Bred", brand: "Adidas", colorway: "Core Black / Red", sku: "CP9652", year: "2020", releaseDate: "05/12/2020", retail: 220 },
   { model: "Adidas Samba OG", brand: "Adidas", colorway: "Cloud White / Core Black", sku: "B75806", year: "2018", retail: 100 },
   { model: "New Balance 550 White Green", brand: "New Balance", colorway: "White / Green", sku: "BB550WT1", year: "2021", retail: 120 },
   { model: "New Balance 990v5", brand: "New Balance", colorway: "Grey", sku: "M990GL5", year: "2019", retail: 185 },
   { model: "Nike Air Max 97 Silver Bullet", brand: "Nike", colorway: "Silver / White", sku: "884421-001", year: "2017", retail: 175 },
-  { model: "Nike Air Max 1 Twine Baroque Brown", brand: "Nike", colorway: "Twine / Baroque Brown", sku: "DA4302-700", year: "2021", retail: 150 },
-  { model: "Nike Air Max 1 SP Concepts Oil Green", brand: "Nike", colorway: "Oil Green / Multi-Color / Sail", sku: "DN1803-300", year: "2022", retail: 180 },
-  { model: "Adidas YZY Foam RNR Carbon", brand: "Adidas", colorway: "Carbon / Carbon / Carbon", sku: "IG5349", year: "2022", retail: 90 },
-  { model: "Nike Air VaporMax FK Moc 2 ACRONYM", brand: "Nike", colorway: "Black / Black / Volt", sku: "AQ0996-007", year: "2018", retail: 300 },
-  { model: "Nike Air Force 1 '07 Lemon Wash", brand: "Nike", colorway: "Lemon Wash / Lemon Wash", sku: "DZ4483-700", year: "2022", retail: 110 },
-  { model: "Adidas Yeezy Boost 350 V2 Beluga Reflective", brand: "Adidas", colorway: "Grey / Solar Red", sku: "GW1229", year: "2021", retail: 230 },
-  { model: "Adidas Yeezy Boost 350 V2 Oreo", brand: "Adidas", colorway: "Core Black / White", sku: "BY1604", year: "2017", retail: 220 },
-  { model: "Adidas Yeezy 700 V3 Azael", brand: "Adidas", colorway: "Azael", sku: "FW4980", year: "2021", retail: 220 },
-  { model: "Adidas Yeezy Boost 700 Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "B75571", year: "2017", retail: 300 },
-  { model: "Adidas Yeezy Boost 350 V2 Bred OG", brand: "Adidas", colorway: "Core Black / Red", sku: "BY9612", year: "2016", retail: 200 },
-  { model: "Adidas Yeezy Boost 350 V2 Dazzling Blue", brand: "Adidas", colorway: "Core Black / Dazzling Blue", sku: "GY7164", year: "2021", retail: 230 },
-  { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2018", retail: 150 },
-  { model: "Adidas Yeezy Foam RNNR MX Cinder", brand: "Adidas", colorway: "MX Cinder (brown/tan)", sku: "ID4126", year: "2022", retail: 90 },
+  { model: "Nike Air Max 1 Twine Baroque Brown", brand: "Nike", colorway: "Twine / Baroque Brown", sku: "DA4302-700", year: "2020", releaseDate: "08/08/2020", retail: 140 },
+  { model: "Nike Air Max 1 SP Concepts Oil Green", brand: "Nike", colorway: "Oil Green / Multi-Color / Sail", sku: "DN1803-300", year: "2022", releaseDate: "05/03/2022", retail: 170 },
+  { model: "Adidas YZY Foam RNR Carbon", brand: "Adidas", colorway: "Carbon / Carbon / Carbon", sku: "IG5349", year: "2023", releaseDate: "08/08/2023", retail: 90 },
+  { model: "Nike Air VaporMax FK Moc 2 ACRONYM", brand: "Nike", colorway: "Black / Black / Volt", sku: "AQ0996-007", year: "2018", releaseDate: "26/04/2018", retail: 225 },
+  { model: "Nike Air Force 1 '07 Lemon Wash", brand: "Nike", colorway: "Lemon Wash / Lemon Wash", sku: "DZ4493-700", year: "2022", releaseDate: "04/08/2022", retail: 150 },
+  { model: "Adidas Yeezy Boost 350 V2 Beluga Reflective", brand: "Adidas", colorway: "Grey / Solar Red", sku: "GW1229", year: "2021", releaseDate: "18/12/2021", retail: 220 },
+  { model: "Adidas Yeezy Boost 350 V2 Oreo", brand: "Adidas", colorway: "Core Black / White", sku: "BY1604", year: "2016", releaseDate: "18/12/2016", retail: 220 },
+  { model: "Adidas Yeezy 700 V3 Azael", brand: "Adidas", colorway: "Azael", sku: "FW4980", year: "2019", releaseDate: "23/12/2019", retail: 200 },
+  { model: "Adidas Yeezy Boost 700 Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "B75571", year: "2017", releaseDate: "18/11/2017", retail: 300 },
+  { model: "Adidas Yeezy Boost 350 V2 Bred OG", brand: "Adidas", colorway: "Core Black / Red", sku: "BY9612", year: "2016", releaseDate: "23/11/2016", retail: 220 },
+  { model: "Adidas Yeezy Boost 350 V2 Dazzling Blue", brand: "Adidas", colorway: "Core Black / Dazzling Blue", sku: "GY7164", year: "2022", releaseDate: "26/02/2022", retail: 220 },
+  { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2017", releaseDate: "18/11/2017", retail: 180 },
+  { model: "Adidas Yeezy Foam RNNR MX Cinder", brand: "Adidas", colorway: "MX Cinder (brown/tan)", sku: "ID4126", year: "2023", releaseDate: "31/05/2023", retail: 90 },
 ];
 
 const $ = (id) => document.getElementById(id);
 
 // Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
 const INITIAL_STOCK = [
-  { brand: "Nike", model: "Air Max 1 Twine Baroque Brown", colorway: "Twine / Baroque Brown", size: "41", sku: "DA4302-700", retail: 150 },
-  { brand: "Nike", model: "Air Max 1 SP Concepts Oil Green", colorway: "Oil Green / Multi-Color / Sail", size: "41", sku: "DN1803-300", retail: 180 },
+  { brand: "Nike", model: "Air Max 1 Twine Baroque Brown", colorway: "Twine / Baroque Brown", size: "41", sku: "DA4302-700", retail: 140 },
+  { brand: "Nike", model: "Air Max 1 SP Concepts Oil Green", colorway: "Oil Green / Multi-Color / Sail", size: "41", sku: "DN1803-300", retail: 170 },
   { brand: "Adidas", model: "YZY Foam RNR Carbon", colorway: "Carbon / Carbon / Carbon", size: "40⅔", sku: "IG5349", retail: 90 },
-  { brand: "Nike", model: "Air VaporMax FK Moc 2 / ACRONYM", colorway: "Black / Black / Volt", size: "41", sku: "AQ0996-007", retail: 300 },
-  { brand: "Nike", model: "Air Force 1 '07 Lemon Wash", colorway: "Lemon Wash / Lemon Wash", size: "41", sku: "DZ4483-700", retail: 110 },
+  { brand: "Nike", model: "Air VaporMax FK Moc 2 / ACRONYM", colorway: "Black / Black / Volt", size: "41", sku: "AQ0996-007", retail: 225 },
+  { brand: "Nike", model: "Air Force 1 '07 Lemon Wash", colorway: "Lemon Wash / Lemon Wash", size: "41", sku: "DZ4493-700", retail: 150 },
   { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (restock)", colorway: "Core Black / Red", size: "42", sku: "CP9652", retail: 220 },
-  { brand: "Adidas", model: "Yeezy Boost 350 V2 Beluga Reflective", colorway: "Grey / Solar Red", size: "41⅓", sku: "GW1229", retail: 230 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Beluga Reflective", colorway: "Grey / Solar Red", size: "41⅓", sku: "GW1229", retail: 220 },
   { brand: "Adidas", model: "Yeezy Boost 350 V2 Oreo", colorway: "Core Black / White", size: "41⅓", sku: "BY1604", retail: 220 },
-  { brand: "Adidas", model: "Yeezy 700 V3 Azael", colorway: "Azael", size: "41⅓", sku: "FW4980", retail: 220 },
+  { brand: "Adidas", model: "Yeezy 700 V3 Azael", colorway: "Azael", size: "41⅓", sku: "FW4980", retail: 200 },
   { brand: "Adidas", model: "Yeezy Boost 700 Wave Runner", colorway: "Magnet Grey / White / Black", size: "41⅓", sku: "B75571", retail: 300 },
-  { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (OG 2016)", colorway: "Core Black / Red", size: "41⅓", sku: "BY9612", retail: 200 },
-  { brand: "Adidas", model: "Yeezy Boost 350 V2 Dazzling Blue", colorway: "Core Black / Dazzling Blue", size: "41⅓", sku: "GY7164", retail: 230 },
-  { brand: "Adidas", model: "Yeezy Boost 700 V1 Kids Wave Runner", colorway: "Magnet Grey / White / Black", size: "31", sku: "FU9005", retail: 150 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (OG 2016)", colorway: "Core Black / Red", size: "41⅓", sku: "BY9612", retail: 220 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Dazzling Blue", colorway: "Core Black / Dazzling Blue", size: "41⅓", sku: "GY7164", retail: 220 },
+  { brand: "Adidas", model: "Yeezy Boost 700 V1 Kids Wave Runner", colorway: "Magnet Grey / White / Black", size: "31", sku: "FU9005", retail: 180 },
   { brand: "Adidas", model: "Yeezy Foam RNNR MX Cinder", colorway: "MX Cinder (brown/tan)", size: "40⅔", sku: "ID4126", retail: 90 },
 ];
 
@@ -71,7 +71,7 @@ function seedInitialStockIfEmpty() {
     purchaseDate: "",
     purchasePrice: "",
     marketPrice: "",
-    notes: `SKU ${s.sku} · retail ${s.retail}€ (approximatif)`,
+    notes: `SKU ${s.sku} · retail ${s.retail}€`,
   }));
   localStorage.setItem(STORAGE_KEY, JSON.stringify(seeded));
   localStorage.setItem("solefolio_seeded_v1", "1");
@@ -132,7 +132,8 @@ function getReleaseYear(item) {
   if (!skuMatch) return null;
   const sku = skuMatch[1].toUpperCase();
   const cat = CATALOG.find((c) => c.sku && c.sku.toUpperCase() === sku);
-  return cat && cat.year ? cat.year : null;
+  if (!cat) return null;
+  return cat.releaseDate || cat.year || null;
 }
 
 function ticketHTML(item) {
