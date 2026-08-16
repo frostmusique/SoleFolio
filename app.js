@@ -69,7 +69,7 @@ function seedInitialStockIfEmpty() {
     quantity: 1,
     imageUrl: "",
     purchaseDate: "",
-    purchasePrice: "",
+    purchasePrice: s.retail || "",
     marketPrice: "",
     notes: `SKU ${s.sku} · retail ${s.retail}€`,
   }));
