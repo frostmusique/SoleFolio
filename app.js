@@ -235,7 +235,7 @@ function getFilteredSorted() {
   if (currentSearch) {
     const s = currentSearch.toLowerCase();
     list = list.filter((it) =>
-      [it.brand, it.model, it.colorway].join(" ").toLowerCase().includes(s)
+      [it.brand, it.model, it.colorway, it.notes].join(" ").toLowerCase().includes(s)
     );
   }
   switch (currentSort) {
