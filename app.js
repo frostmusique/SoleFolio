@@ -99,6 +99,7 @@ seedInitialStockIfEmpty();
 let items = load();
 let currentSort = "recent";
 let currentSearch = "";
+let currentBrandFilter = "all";
 
 function load() {
   try {
@@ -228,6 +229,9 @@ function escapeHTML(str) {
 
 function getFilteredSorted() {
   let list = [...items];
+  if (currentBrandFilter !== "all") {
+    list = list.filter((it) => (it.brand || "").toLowerCase() === currentBrandFilter);
+  }
   if (currentSearch) {
     const s = currentSearch.toLowerCase();
     list = list.filter((it) =>
@@ -505,6 +509,15 @@ $("searchInput").addEventListener("input", (e) => {
 $("sortSelect").addEventListener("change", (e) => {
   currentSort = e.target.value;
   render();
+});
+
+document.querySelectorAll(".filter-chip").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    currentBrandFilter = btn.dataset.brand;
+    document.querySelectorAll(".filter-chip").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+  });
 });
 
 $("logoTrigger").addEventListener("click", () => {

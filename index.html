@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=4" />
+<link rel="stylesheet" href="style.css?v=5" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
 </head>
 <body>
@@ -56,6 +56,12 @@
       <option value="value">Valeur marché ↓</option>
       <option value="name">Nom A→Z</option>
     </select>
+  </div>
+
+  <div class="brand-filters">
+    <button class="filter-chip active" data-brand="all">Tous</button>
+    <button class="filter-chip" data-brand="nike">Nike</button>
+    <button class="filter-chip" data-brand="adidas">Adidas</button>
   </div>
 
   <div id="emptyState" class="empty-state" hidden>
@@ -184,6 +190,6 @@
   <img src="assets/logo.png" alt="SoleFolio" class="lightbox-image" />
 </div>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

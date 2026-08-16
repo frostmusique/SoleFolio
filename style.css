@@ -296,6 +296,30 @@ body{
   outline:none;
 }
 
+.brand-filters{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+}
+.filter-chip{
+  padding:8px 18px;
+  border-radius:999px;
+  border:1.5px solid var(--card-border);
+  background:var(--card);
+  color:var(--ink-soft);
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:13.5px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.filter-chip:hover{border-color:var(--lilac);}
+.filter-chip.active{
+  background:var(--lilac-dark);
+  border-color:var(--lilac-dark);
+  color:#fff;
+}
+
 .empty-state{
   text-align:center;
   padding:60px 20px;
