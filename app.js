@@ -265,12 +265,14 @@ function render() {
 function attachCardEvents() {
   document.querySelectorAll(".edit-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const id = e.target.closest(".ticket").dataset.id;
       openModal(items.find((it) => it.id === id));
     });
   });
   document.querySelectorAll(".delete-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const id = e.target.closest(".ticket").dataset.id;
       if (confirm("Supprimer cette paire du portfolio ?")) {
         items = items.filter((it) => it.id !== id);
@@ -279,7 +281,64 @@ function attachCardEvents() {
       }
     });
   });
+  document.querySelectorAll(".ticket").forEach((card) => {
+    card.addEventListener("click", () => {
+      const id = card.dataset.id;
+      openDetail(items.find((it) => it.id === id));
+    });
+  });
 }
+
+function openDetail(item) {
+  if (!item) return;
+  const q = Number(item.quantity || 1);
+  const invested = Number(item.purchasePrice || 0) * q;
+  const value = Number(item.marketPrice || 0) * q;
+  const gain = value - invested;
+  const gainPct = invested > 0 ? (gain / invested) * 100 : 0;
+  const isGain = gain >= 0;
+  const releaseYear = getReleaseYear(item);
+  const dateLabel = item.purchaseDate || (releaseYear ? `sortie ${releaseYear}` : "—");
+
+  $("detailBrand").textContent = item.brand || "—";
+  $("detailModel").textContent = item.model || "Modèle sans nom";
+  $("detailMeta").textContent = [item.colorway, item.size ? `EU ${item.size}` : null].filter(Boolean).join(" · ");
+
+  if (item.imageUrl) {
+    $("detailImg").src = item.imageUrl;
+    $("detailImg").alt = item.model || "";
+    $("detailImg").hidden = false;
+    $("detailPlaceholder").hidden = true;
+  } else {
+    $("detailImg").hidden = true;
+    $("detailPlaceholder").hidden = false;
+  }
+
+  $("detailPurchase").textContent = euros(item.purchasePrice);
+  $("detailMarket").textContent = euros(item.marketPrice);
+
+  const gainEl = $("detailGain");
+  gainEl.className = "detail-gain " + (isGain ? "positive" : "negative");
+  gainEl.innerHTML = `<span class="lbl">Plus-value</span><span>${isGain ? "+" : "-"}${euros(Math.abs(gain)).replace("-", "")} (${gainPct >= 0 ? "+" : ""}${gainPct.toFixed(0)}%)</span>`;
+
+  $("detailQuantity").textContent = `x${q}`;
+  $("detailDate").textContent = dateLabel;
+  $("detailNotes").textContent = item.notes || "";
+
+  $("detailEditBtn").onclick = () => {
+    $("detailOverlay").hidden = true;
+    openModal(item);
+  };
+
+  $("detailOverlay").hidden = false;
+}
+
+$("closeDetail").addEventListener("click", () => {
+  $("detailOverlay").hidden = true;
+});
+$("detailOverlay").addEventListener("click", (e) => {
+  if (e.target.id === "detailOverlay") $("detailOverlay").hidden = true;
+});
 
 function openModal(item) {
   $("scanStatus").hidden = true;
