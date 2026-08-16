@@ -38,7 +38,7 @@ body{
   border-bottom:1px solid var(--card-border);
 }
 .brand{display:flex;align-items:center;gap:10px;}
-.brand-mark{height:46px;width:auto;display:block;}
+.brand-mark{height:72px;width:auto;display:block;}
 
 .header-actions{display:flex;align-items:center;gap:8px;}
 .btn-reset{

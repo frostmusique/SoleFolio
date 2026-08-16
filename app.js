@@ -393,6 +393,15 @@ $("fModel").addEventListener("input", (e) => {
   if (match) {
     if (!$("fBrand").value) $("fBrand").value = match.brand;
     if (!$("fColorway").value) $("fColorway").value = match.colorway;
+    if (!$("fPurchase").value && match.retail) $("fPurchase").value = match.retail;
+    if (!$("fNotes").value) {
+      const extras = [
+        match.sku ? `SKU ${match.sku}` : null,
+        match.releaseDate ? `sortie ${match.releaseDate}` : match.year ? `sortie ${match.year}` : null,
+        match.retail ? `retail ${match.retail}€` : null,
+      ].filter(Boolean).join(" · ");
+      if (extras) $("fNotes").value = extras;
+    }
   }
 });
 
