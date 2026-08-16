@@ -357,6 +357,9 @@ $("detailOverlay").addEventListener("click", (e) => {
 });
 
 function openModal(item) {
+  const submitBtn = $("sneakerForm").querySelector('button[type="submit"]');
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Enregistrer";
   $("scanStatus").hidden = true;
   $("scanInput").value = "";
   $("modalTitle").textContent = item ? "Modifier la paire" : "Ajouter une paire";
@@ -395,14 +398,27 @@ $("modalOverlay").addEventListener("click", (e) => {
   if (e.target.id === "modalOverlay") closeModal();
 });
 
-$("sneakerForm").addEventListener("submit", (e) => {
-  e.preventDefault();
+let isSaving = false;
+
+function saveSneaker(e) {
+  if (e) e.preventDefault();
+  if (isSaving) return;
+  const modelValue = $("fModel").value.trim();
+  if (!modelValue) {
+    alert("Le champ Modèle est obligatoire.");
+    return;
+  }
+  isSaving = true;
+  const submitBtn = $("sneakerForm").querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enregistré ✓";
+
   const id = $("itemId").value;
   const data = {
     id: id || Date.now().toString(),
     createdAt: id ? items.find((it) => it.id === id)?.createdAt : Date.now(),
     brand: $("fBrand").value.trim(),
-    model: $("fModel").value.trim(),
+    model: modelValue,
     colorway: $("fColorway").value.trim(),
     size: $("fSize").value.trim(),
     quantity: $("fQuantity").value || 1,
@@ -418,9 +434,17 @@ $("sneakerForm").addEventListener("submit", (e) => {
     items.push(data);
   }
   persist();
-  closeModal();
-  render();
-});
+
+  setTimeout(() => {
+    closeModal();
+    render();
+    isSaving = false;
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enregistrer";
+  }, 250);
+}
+
+$("sneakerForm").addEventListener("submit", saveSneaker);
 
 function findBySku(text) {
   const cleaned = text.toUpperCase();
