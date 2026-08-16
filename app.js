@@ -414,4 +414,11 @@ $("sortSelect").addEventListener("change", (e) => {
   render();
 });
 
+$("logoTrigger").addEventListener("click", () => {
+  $("logoLightbox").hidden = false;
+});
+$("logoLightbox").addEventListener("click", () => {
+  $("logoLightbox").hidden = true;
+});
+
 render();
