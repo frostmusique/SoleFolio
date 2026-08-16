@@ -127,6 +127,14 @@ function placeholderSVG() {
   </svg>`;
 }
 
+function getReleaseYear(item) {
+  const skuMatch = (item.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
+  if (!skuMatch) return null;
+  const sku = skuMatch[1].toUpperCase();
+  const cat = CATALOG.find((c) => c.sku && c.sku.toUpperCase() === sku);
+  return cat && cat.year ? cat.year : null;
+}
+
 function ticketHTML(item) {
   const q = Number(item.quantity || 1);
   const invested = Number(item.purchasePrice || 0) * q;
@@ -134,6 +142,8 @@ function ticketHTML(item) {
   const gain = value - invested;
   const gainPct = invested > 0 ? (gain / invested) * 100 : 0;
   const isGain = gain >= 0;
+  const releaseYear = getReleaseYear(item);
+  const dateLabel = item.purchaseDate || (releaseYear ? `sortie ${releaseYear}` : "date ?");
 
   return `
   <article class="ticket" data-id="${item.id}">
@@ -155,7 +165,7 @@ function ticketHTML(item) {
         <p class="ticket-meta">${escapeHTML(item.colorway || "")}${item.size ? " · EU " + escapeHTML(item.size) : ""}</p>
       </div>
       <div class="ticket-divider">
-        <span>${item.purchaseDate || "date ?"}</span>
+        <span>${dateLabel}</span>
         <span>x${q}</span>
       </div>
       <div class="price-row">
