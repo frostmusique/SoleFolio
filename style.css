@@ -183,7 +183,7 @@ body{
 
 .ticket-image{
   aspect-ratio:1/1;
-  background:#F6F1EA;
+  background:#FFFFFF;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -193,7 +193,8 @@ body{
   width:100%;
   height:100%;
   object-fit:contain;
-  padding:18px;
+  padding:16px;
+  border-radius:8px;
 }
 .ticket-image svg{width:55%;opacity:0.25;}
 
