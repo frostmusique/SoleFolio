@@ -284,6 +284,16 @@ function closeModal() {
 }
 
 $("addBtn").addEventListener("click", () => openModal(null));
+
+$("resetBtn").addEventListener("click", () => {
+  if (confirm("Réinitialiser le stock avec les 14 paires par défaut (dates et prix à jour) ? Toute modification ou photo déjà ajoutée sera perdue.")) {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem("solefolio_seeded_v1");
+    seedInitialStockIfEmpty();
+    items = load();
+    render();
+  }
+});
 $("closeModal").addEventListener("click", closeModal);
 $("modalOverlay").addEventListener("click", (e) => {
   if (e.target.id === "modalOverlay") closeModal();
