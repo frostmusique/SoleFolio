@@ -41,6 +41,20 @@ body{
 .brand-mark{height:46px;width:auto;display:block;}
 
 .header-actions{display:flex;align-items:center;gap:8px;}
+.btn-reset{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  background:transparent;
+  border:1.5px solid var(--card-border);
+  color:var(--ink-soft);
+  padding:9px 12px;
+  border-radius:999px;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:13px;
+  cursor:pointer;
+}
 
 .btn-primary{
   display:flex;
