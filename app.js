@@ -45,6 +45,7 @@ const IMAGES_BY_SKU = {
   "B75571": "assets/b75571.jpeg",
   "FW4980": "assets/fw4980.jpeg",
   "BY1604": "assets/by1604.jpeg",
+  "GW1229": "assets/gw1229.jpeg",
 };
 
 // Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
