@@ -36,6 +36,11 @@ const CATALOG = [
 
 const $ = (id) => document.getElementById(id);
 
+// Photos ajoutees manuellement (uploadees par l'utilisateur), associees par SKU
+const IMAGES_BY_SKU = {
+  "ID4126": "assets/id4126.jpeg",
+};
+
 // Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
 const INITIAL_STOCK = [
   { brand: "Nike", model: "Air Max 1 Twine Baroque Brown", colorway: "Twine / Baroque Brown", size: "41", sku: "DA4302-700", retail: 140, market: 105 },
@@ -90,6 +95,21 @@ function load() {
     return [];
   }
 }
+
+function backfillImagesFromSku() {
+  let changed = false;
+  items = items.map((it) => {
+    if (it.imageUrl) return it;
+    const m = (it.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
+    if (!m) return it;
+    const img = IMAGES_BY_SKU[m[1].toUpperCase()];
+    if (!img) return it;
+    changed = true;
+    return { ...it, imageUrl: img };
+  });
+  if (changed) persist();
+}
+backfillImagesFromSku();
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
