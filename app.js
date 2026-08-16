@@ -39,6 +39,7 @@ const $ = (id) => document.getElementById(id);
 // Photos ajoutees manuellement (uploadees par l'utilisateur), associees par SKU
 const IMAGES_BY_SKU = {
   "ID4126": "assets/id4126.jpeg",
+  "FU9005": "assets/fu9005.jpeg",
 };
 
 // Import initial du stock scanné (13 paires identifiées sur les photos d'étiquettes envoyées)
