@@ -62,6 +62,17 @@ const CATALOG = [
   { model: "Adidas Yeezy Foam RNR Onyx Kids", brand: "Adidas", colorway: "Onyx / Onyx / Onyx", sku: "HP5347", year: "2022", releaseDate: "08/06/2022", retail: 60, market: 45 },
   { model: "Adidas Yeezy Knit RNR Fade Onyx", brand: "Adidas", colorway: "Fade Onyx / Fade Onyx / Fade Onyx", sku: "IE1663", year: "2023", releaseDate: "10/08/2023", retail: 210, market: 85 },
   { model: "Adidas Yeezy Slide Dark Onyx", brand: "Adidas", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", sku: "ID5103", year: "2024", releaseDate: "07/03/2024", retail: 70, market: 60 },
+  { model: "Adidas Yeezy Foam RNR Sand", brand: "Adidas", colorway: "Sand / Sand / Sand", sku: "FY4567", year: "2021", releaseDate: "26/03/2021", retail: 90, market: 65 },
+  { model: "Air Jordan 1 High OG Spider-Man Across the Spider-Verse", brand: "Jordan", colorway: "University Red / Black / Summit White", sku: "DV1748-601", year: "2023", releaseDate: "20/05/2023", retail: 200, market: 112 },
+  { model: "Adidas Yeezy Foam RNR Infant Stone Sage", brand: "Adidas", colorway: "Stone Sage / Stone Sage / Stone Sage", sku: "GX7296", year: "2022", releaseDate: "11/03/2022", retail: 45, market: 40 },
+  { model: "Nike Air Force 1 Low x Supreme White", brand: "Nike", colorway: "White / White", sku: "CU9225-100", year: "2020", releaseDate: "05/03/2020", retail: 118, market: 150 },
+  { model: "Adidas Yeezy Boost 350 Pirate Black", brand: "Adidas", colorway: "Pirate Black / Pirate Black / Pirate Black", sku: "BB5350", year: "2023", releaseDate: "31/05/2023", retail: 230, market: 100 },
+  { model: "Air Jordan 4 Retro Fire Red", brand: "Jordan", colorway: "White / Varsity Red / Black", sku: "308497-110", year: "2012", releaseDate: "04/08/2012", retail: 160, market: 200 },
+  { model: "Nike Blazer Mid '77 Vintage", brand: "Nike", colorway: "White / Black", sku: "BQ6806-100", year: "2019", releaseDate: "25/03/2019", retail: 100, market: 105 },
+  { model: "Nike React Infinity Run FK 3 Prm Moving Company", brand: "Nike", colorway: "Phantom / Oatmeal / Citron Pulse / Ale Brown", sku: "DZ3025-001", year: "2023", releaseDate: "02/02/2023", retail: 180, market: 63 },
+  { model: "Nike Air Max 98 University Red", brand: "Nike", colorway: "University Red / University Red", sku: "640744-602", year: "2019", releaseDate: "25/01/2019", retail: 160, market: 100 },
+  { model: "Nike Air Max 97 Ultra '17 x Skepta", brand: "Nike", colorway: "Multi-Color / Black / Vivid Sulfur", sku: "AJ1988-900", year: "2017", releaseDate: "02/09/2017", retail: 180, market: 200 },
+  { model: "Air Jordan 7 Retro x Patta Shimmer", brand: "Jordan", colorway: "Shimmer / Tough Red / Velvet Brown", sku: "AT3375-200", year: "2019", releaseDate: "15/06/2019", retail: 200, market: 149 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -187,6 +198,17 @@ const PENDING_NEW_ITEMS = [
   { brand: "Adidas", model: "Yeezy Foam RNR Onyx Kids", colorway: "Onyx / Onyx / Onyx", size: "35", sku: "HP5347", retail: 60, market: 45 },
   { brand: "Adidas", model: "Yeezy Knit RNR Fade Onyx", colorway: "Fade Onyx / Fade Onyx / Fade Onyx", size: "41⅓", sku: "IE1663", retail: 210, market: 85 },
   { brand: "Adidas", model: "Yeezy Slide Dark Onyx", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", size: "40⅔", sku: "ID5103", retail: 70, market: 60 },
+  { brand: "Adidas", model: "Yeezy Foam RNR Sand", colorway: "Sand / Sand / Sand", size: "40½", sku: "FY4567", retail: 90, market: 65 },
+  { brand: "Jordan", model: "Air Jordan 1 High OG Spider-Man Across the Spider-Verse", colorway: "University Red / Black / Summit White", size: "41", sku: "DV1748-601", retail: 200, market: 112 },
+  { brand: "Adidas", model: "Yeezy Foam RNR Infant Stone Sage", colorway: "Stone Sage / Stone Sage / Stone Sage", size: "19", sku: "GX7296", retail: 45, market: 40 },
+  { brand: "Nike", model: "Air Force 1 Low x Supreme White", colorway: "White / White", size: "41", sku: "CU9225-100", retail: 118, market: 150, quantity: 2 },
+  { brand: "Adidas", model: "Yeezy Boost 350 Pirate Black", colorway: "Pirate Black / Pirate Black / Pirate Black", size: "41⅓", sku: "BB5350", retail: 230, market: 100 },
+  { brand: "Jordan", model: "Air Jordan 4 Retro Fire Red", colorway: "White / Varsity Red / Black", size: "41", sku: "308497-110", retail: 160, market: 200 },
+  { brand: "Nike", model: "Blazer Mid '77 Vintage", colorway: "White / Black", size: "41", sku: "BQ6806-100", retail: 100, market: 105 },
+  { brand: "Nike", model: "React Infinity Run FK 3 Prm Moving Company", colorway: "Phantom / Oatmeal / Citron Pulse / Ale Brown", size: "41", sku: "DZ3025-001", retail: 180, market: 63 },
+  { brand: "Nike", model: "Air Max 98 University Red", colorway: "University Red / University Red", size: "41", sku: "640744-602", retail: 160, market: 100 },
+  { brand: "Nike", model: "Air Max 97 Ultra '17 x Skepta", colorway: "Multi-Color / Black / Vivid Sulfur", size: "41", sku: "AJ1988-900", retail: 180, market: 200 },
+  { brand: "Jordan", model: "Air Jordan 7 Retro x Patta Shimmer", colorway: "Shimmer / Tough Red / Velvet Brown", size: "41", sku: "AT3375-200", retail: 200, market: 149 },
 ];
 
 function ensurePendingItemsExist() {
@@ -203,7 +225,7 @@ function ensurePendingItemsExist() {
       model: p.model,
       colorway: p.colorway,
       size: p.size,
-      quantity: 1,
+      quantity: p.quantity || 1,
       imageUrl: IMAGES_BY_SKU[p.sku] || "",
       purchaseDate: "",
       purchasePrice: p.retail || "",
