@@ -99,7 +99,7 @@ const IMAGES_BY_SKU = {
 const INITIAL_STOCK = [
   { brand: "Nike", model: "Air Max 1 Twine Baroque Brown", colorway: "Twine / Baroque Brown", size: "41", sku: "DA4302-700", retail: 140, market: 105 },
   { brand: "Nike", model: "Air Max 1 SP Concepts Oil Green", colorway: "Oil Green / Multi-Color / Sail", size: "41", sku: "DN1803-300", retail: 170, market: 100 },
-  { brand: "Adidas", model: "YZY Foam RNR Carbon", colorway: "Carbon / Carbon / Carbon", size: "40⅔", sku: "IG5349", retail: 90, market: 45 },
+  { brand: "Adidas", model: "YZY Foam RNR Carbon", colorway: "Carbon / Carbon / Carbon", size: "40½", sku: "IG5349", retail: 90, market: 45 },
   { brand: "Nike", model: "Air VaporMax FK Moc 2 / ACRONYM", colorway: "Black / Black / Volt", size: "41", sku: "AQ0996-007", retail: 225, market: 145 },
   { brand: "Nike", model: "Air Force 1 '07 Lemon Wash", colorway: "Lemon Wash / Lemon Wash", size: "41", sku: "DZ4493-700", retail: 110, market: 110 },
   { brand: "Adidas", model: "Yeezy Boost 350 V2 Bred (restock)", colorway: "Core Black / Red", size: "42", sku: "CP9652", retail: 220, market: 75 },
@@ -197,7 +197,7 @@ const PENDING_NEW_ITEMS = [
   { brand: "Adidas", model: "Yeezy Foam RNR Onyx", colorway: "Onyx / Onyx / Onyx", size: "40⅔", sku: "HP8739", retail: 90, market: 60 },
   { brand: "Adidas", model: "Yeezy Foam RNR Onyx Kids", colorway: "Onyx / Onyx / Onyx", size: "35", sku: "HP5347", retail: 60, market: 45 },
   { brand: "Adidas", model: "Yeezy Knit RNR Fade Onyx", colorway: "Fade Onyx / Fade Onyx / Fade Onyx", size: "41⅓", sku: "IE1663", retail: 210, market: 85 },
-  { brand: "Adidas", model: "Yeezy Slide Dark Onyx", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", size: "40⅔", sku: "ID5103", retail: 70, market: 60 },
+  { brand: "Adidas", model: "Yeezy Slide Dark Onyx", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", size: "40½", sku: "ID5103", retail: 70, market: 60 },
   { brand: "Adidas", model: "Yeezy Foam RNR Sand", colorway: "Sand / Sand / Sand", size: "40½", sku: "FY4567", retail: 90, market: 65 },
   { brand: "Jordan", model: "Air Jordan 1 High OG Spider-Man Across the Spider-Verse", colorway: "University Red / Black / Summit White", size: "41", sku: "DV1748-601", retail: 200, market: 112 },
   { brand: "Adidas", model: "Yeezy Foam RNR Infant Stone Sage", colorway: "Stone Sage / Stone Sage / Stone Sage", size: "19", sku: "GX7296", retail: 45, market: 40 },
@@ -209,6 +209,7 @@ const PENDING_NEW_ITEMS = [
   { brand: "Nike", model: "Air Max 98 University Red", colorway: "University Red / University Red", size: "41", sku: "640744-602", retail: 160, market: 100 },
   { brand: "Nike", model: "Air Max 97 Ultra '17 x Skepta", colorway: "Multi-Color / Black / Vivid Sulfur", size: "41", sku: "AJ1988-900", retail: 180, market: 200 },
   { brand: "Jordan", model: "Air Jordan 7 Retro x Patta Shimmer", colorway: "Shimmer / Tough Red / Velvet Brown", size: "41", sku: "AT3375-200", retail: 200, market: 149 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Zebra", colorway: "White / Core Black / Red", size: "41", sku: "CP9654", retail: 220, market: 220 },
 ];
 
 function ensurePendingItemsExist() {
@@ -284,9 +285,13 @@ function fixKnownQuantities() {
     "FW4980": 2, // Yeezy 700 V3 Azael : confirmee x2 paires reelles
     "B75571": 2, // Wave Runner : confirmee x2 paires reelles
     "GW1229": 2, // Beluga Reflective : confirmee x2 paires reelles
-    "BY9612": 2, // Bred OG 2016 : correction — relecture directe des photos ne confirme que 2 apparitions reelles, pas 3
+    "BY9612": 3, // Bred OG 2016 : x3 confirmees (3 PO# distincts : 129918535, 129918533, + le 3eme deja identifie)
     "CP9652": 2, // Bred restock : x2 confirmees, a verifier si 3eme paire existe
     "GY7164": 2, // Dazzling Blue : x2 confirmees (vue en taille 41⅓ ET en taille 38, forcement 2 boites distinctes)
+    "HP8739": 2, // Yeezy Foam RNR Onyx : x2 confirmees (2 PO# distincts, PO#131555488 et PO#131555507, meme taille US7)
+    "HP5347": 2, // Yeezy Foam RNR Onyx Kids : x2 confirmees (2 PO# distincts, PO#131555506 et PO#131555508)
+    "ID5103": 2, // Yeezy Slide Dark Onyx : x2 confirmees (2 PO# distincts, PO#131408678 et PO#131408665)
+    "ID4126": 2, // Yeezy Foam RNNR MX Cinder : confirmee x2 paires reelles
   };
   let changed = false;
   items = items.map((it) => {
