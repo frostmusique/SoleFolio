@@ -58,6 +58,10 @@ const CATALOG = [
   { model: "Nike Dunk Low Chicago Split", brand: "Nike", colorway: "University Red / Black / Light Silver / White", sku: "DZ2536-600", year: "2023", releaseDate: "14/07/2023", retail: 110, market: 100 },
   { model: "Off-White x Nike Dunk Low Lot 24 of 50", brand: "Nike", colorway: "Sail / Neutral Grey / Washed Coral", sku: "DM1602-119", year: "2021", releaseDate: "09/08/2021", retail: 180, market: 350 },
   { model: "NBA x Nike Dunk Low EMB Chicago Bulls", brand: "Nike", colorway: "Sail / Black / Chile Red / Black", sku: "DD3363-100", year: "2021", releaseDate: "23/10/2021", retail: 110, market: 90 },
+  { model: "Adidas Yeezy Foam RNR Onyx", brand: "Adidas", colorway: "Onyx / Onyx / Onyx", sku: "HP8739", year: "2022", releaseDate: "08/06/2022", retail: 90, market: 60 },
+  { model: "Adidas Yeezy Foam RNR Onyx Kids", brand: "Adidas", colorway: "Onyx / Onyx / Onyx", sku: "HP5347", year: "2022", releaseDate: "08/06/2022", retail: 60, market: 45 },
+  { model: "Adidas Yeezy Knit RNR Fade Onyx", brand: "Adidas", colorway: "Fade Onyx / Fade Onyx / Fade Onyx", sku: "IE1663", year: "2023", releaseDate: "10/08/2023", retail: 210, market: 85 },
+  { model: "Adidas Yeezy Slide Dark Onyx", brand: "Adidas", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", sku: "ID5103", year: "2024", releaseDate: "07/03/2024", retail: 70, market: 60 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -179,6 +183,10 @@ const PENDING_NEW_ITEMS = [
   { brand: "Nike", model: "Dunk Low Chicago Split", colorway: "University Red / Black / Light Silver / White", size: "41", sku: "DZ2536-600", retail: 110, market: 100 },
   { brand: "Nike", model: "Off-White x Nike Dunk Low Lot 24 of 50", colorway: "Sail / Neutral Grey / Washed Coral", size: "41", sku: "DM1602-119", retail: 180, market: 350 },
   { brand: "Nike", model: "NBA x Nike Dunk Low EMB Chicago Bulls", colorway: "Sail / Black / Chile Red / Black", size: "41", sku: "DD3363-100", retail: 110, market: 90 },
+  { brand: "Adidas", model: "Yeezy Foam RNR Onyx", colorway: "Onyx / Onyx / Onyx", size: "40⅔", sku: "HP8739", retail: 90, market: 60 },
+  { brand: "Adidas", model: "Yeezy Foam RNR Onyx Kids", colorway: "Onyx / Onyx / Onyx", size: "35", sku: "HP5347", retail: 60, market: 45 },
+  { brand: "Adidas", model: "Yeezy Knit RNR Fade Onyx", colorway: "Fade Onyx / Fade Onyx / Fade Onyx", size: "41⅓", sku: "IE1663", retail: 210, market: 85 },
+  { brand: "Adidas", model: "Yeezy Slide Dark Onyx", colorway: "Dark Onyx / Dark Onyx / Dark Onyx", size: "40⅔", sku: "ID5103", retail: 70, market: 60 },
 ];
 
 function ensurePendingItemsExist() {
