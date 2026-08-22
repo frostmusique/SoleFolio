@@ -184,6 +184,9 @@ function renderStats() {
   const gainEl = $("statGain");
   gainEl.textContent = (t.gain >= 0 ? "+" : "") + euros(t.gain).replace("-", "");
   gainEl.className = "stat-value " + (t.gain >= 0 ? "positive" : "negative");
+
+  const totalPairs = items.reduce((sum, it) => sum + Number(it.quantity || 1), 0);
+  $("pairCount").innerHTML = `<strong>${totalPairs}</strong> paire${totalPairs > 1 ? "s" : ""} en stock`;
 }
 
 function placeholderSVG() {

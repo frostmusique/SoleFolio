@@ -241,6 +241,18 @@ body{
   padding:20px;
 }
 
+.pair-count{
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  font-size:15px;
+  color:var(--ink-soft);
+  margin:0 0 14px;
+}
+.pair-count strong{
+  color:var(--lilac-dark);
+  font-size:17px;
+}
+
 .stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
