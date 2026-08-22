@@ -533,7 +533,8 @@ function openDetail(item) {
 
   $("detailBrand").textContent = item.brand || "—";
   $("detailModel").textContent = item.model || "Modèle sans nom";
-  $("detailMeta").textContent = [item.colorway, item.size ? `EU ${item.size}` : null].filter(Boolean).join(" · ");
+  $("detailMeta").textContent = item.colorway || "";
+  $("detailSize").textContent = item.size ? `Taille EU ${item.size}` : "";
 
   if (item.imageUrl) {
     $("detailImg").src = item.imageUrl;

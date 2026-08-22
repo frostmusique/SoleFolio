@@ -114,6 +114,12 @@ body{
   color:var(--ink-soft);
   margin:0;
 }
+.detail-size{
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--ink);
+  margin:4px 0 0;
+}
 .detail-divider{
   border-top:1.5px dashed var(--card-border);
   margin:18px 0;
