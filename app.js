@@ -273,7 +273,13 @@ function render() {
     empty.querySelector("p").textContent = "Aucun résultat pour cette recherche.";
   } else {
     empty.hidden = true;
-    grid.innerHTML = list.map(ticketHTML).join("");
+    grid.innerHTML = list.map((it) => {
+      try {
+        return ticketHTML(it);
+      } catch (err) {
+        return `<div class="ticket" style="padding:16px;color:#B23A2F;font-size:12px;">Erreur d'affichage pour "${(it.model || "?")}" — ${err.message}</div>`;
+      }
+    }).join("");
   }
   attachCardEvents();
 }
@@ -413,34 +419,43 @@ function saveSneaker(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = "Enregistré ✓";
 
-  const id = $("itemId").value;
-  const data = {
-    id: id || Date.now().toString(),
-    createdAt: id ? items.find((it) => it.id === id)?.createdAt : Date.now(),
-    brand: $("fBrand").value.trim(),
-    model: modelValue,
-    colorway: $("fColorway").value.trim(),
-    size: $("fSize").value.trim(),
-    quantity: $("fQuantity").value || 1,
-    imageUrl: $("fImage").value.trim(),
-    purchaseDate: $("fDate").value,
-    purchasePrice: $("fPurchase").value,
-    marketPrice: $("fMarket").value,
-    notes: $("fNotes").value.trim(),
-  };
-  if (id) {
-    items = items.map((it) => (it.id === id ? data : it));
-  } else {
-    items.push(data);
+  try {
+    const id = $("itemId").value;
+    const data = {
+      id: id || Date.now().toString(),
+      createdAt: id ? items.find((it) => it.id === id)?.createdAt : Date.now(),
+      brand: $("fBrand").value.trim(),
+      model: modelValue,
+      colorway: $("fColorway").value.trim(),
+      size: $("fSize").value.trim(),
+      quantity: $("fQuantity").value || 1,
+      imageUrl: $("fImage").value.trim(),
+      purchaseDate: $("fDate").value,
+      purchasePrice: $("fPurchase").value,
+      marketPrice: $("fMarket").value,
+      notes: $("fNotes").value.trim(),
+    };
+    if (id) {
+      items = items.map((it) => (it.id === id ? data : it));
+    } else {
+      items.push(data);
+    }
+    persist();
+  } catch (err) {
+    alert("Erreur lors de l'enregistrement : " + err.message);
   }
-  persist();
 
   setTimeout(() => {
-    closeModal();
-    render();
-    isSaving = false;
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Enregistrer";
+    try {
+      closeModal();
+      render();
+    } catch (err) {
+      alert("Erreur d'affichage : " + err.message);
+    } finally {
+      isSaving = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enregistrer";
+    }
   }, 250);
 }
 
