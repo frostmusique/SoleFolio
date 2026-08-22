@@ -282,6 +282,10 @@ function fixKnownQuantities() {
     "FZ1291-600": 1, // Wizard of Oz : une seule paire reelle (fusion en double corrigee)
     "CU9225-100": 2, // Air Force 1 x Supreme White : confirmee x2 paires reelles
     "FW4980": 2, // Yeezy 700 V3 Azael : confirmee x2 paires reelles
+    "B75571": 2, // Wave Runner : confirmee x2 paires reelles
+    "GW1229": 2, // Beluga Reflective : confirmee x2 paires reelles
+    "BY9612": 3, // Bred OG 2016 : confirmee x3 paires reelles (photographiee 3 fois)
+    "CP9652": 2, // Bred restock : x2 confirmees, a verifier si 3eme paire existe
   };
   let changed = false;
   items = items.map((it) => {
