@@ -284,7 +284,7 @@ function fixKnownQuantities() {
     "FW4980": 2, // Yeezy 700 V3 Azael : confirmee x2 paires reelles
     "B75571": 2, // Wave Runner : confirmee x2 paires reelles
     "GW1229": 2, // Beluga Reflective : confirmee x2 paires reelles
-    "BY9612": 3, // Bred OG 2016 : confirmee x3 paires reelles (photographiee 3 fois)
+    "BY9612": 2, // Bred OG 2016 : correction — relecture directe des photos ne confirme que 2 apparitions reelles, pas 3
     "CP9652": 2, // Bred restock : x2 confirmees, a verifier si 3eme paire existe
     "GY7164": 2, // Dazzling Blue : x2 confirmees (vue en taille 41⅓ ET en taille 38, forcement 2 boites distinctes)
   };
