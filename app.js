@@ -157,6 +157,41 @@ function ensurePendingItemsExist() {
 }
 ensurePendingItemsExist();
 
+function mergeDuplicateSkus() {
+  const bySku = {};
+  const noSku = [];
+  items.forEach((it) => {
+    const m = (it.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
+    if (!m) {
+      noSku.push(it);
+      return;
+    }
+    const sku = m[1].toUpperCase();
+    if (!bySku[sku]) bySku[sku] = [];
+    bySku[sku].push(it);
+  });
+
+  let changed = false;
+  const merged = [...noSku];
+  Object.values(bySku).forEach((group) => {
+    if (group.length === 1) {
+      merged.push(group[0]);
+      return;
+    }
+    changed = true;
+    // garde la fiche la plus complete (avec photo si possible) comme base, additionne les quantites
+    const base = group.find((g) => g.imageUrl) || group[0];
+    const totalQty = group.reduce((sum, g) => sum + Number(g.quantity || 1), 0);
+    merged.push({ ...base, quantity: totalQty });
+  });
+
+  if (changed) {
+    items = merged;
+    persist();
+  }
+}
+mergeDuplicateSkus();
+
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
