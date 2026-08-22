@@ -33,6 +33,20 @@ const CATALOG = [
   { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2017", releaseDate: "18/11/2017", retail: 180, market: 110 },
   { model: "Adidas Yeezy Foam RNNR MX Cinder", brand: "Adidas", colorway: "MX Cinder (brown/tan)", sku: "ID4126", year: "2023", releaseDate: "31/05/2023", retail: 90, market: 65 },
   { model: "Nike SB Dunk Low Pro Wizard of Oz", brand: "Nike", colorway: "Gym Red / University Red / Multi", sku: "FZ1291-600", year: "2024", releaseDate: "23/12/2024", retail: 125, market: 87 },
+  { model: "Adidas Yeezy Boost 350 V2 Clay", brand: "Adidas", colorway: "Clay / Clay / Clay", sku: "EG7490", year: "2019", releaseDate: "30/03/2019", retail: 220, market: 150 },
+  { model: "Adidas Yeezy Boost 700 Bright Blue", brand: "Adidas", colorway: "Blue / Orange", sku: "GZ0541", year: "2021", releaseDate: "24/04/2021", retail: 240, market: 155 },
+  { model: "Air Jordan 1 Retro High OG Black Toe Reimagined", brand: "Jordan", colorway: "White / Black / Varsity Red / Sail", sku: "DZ5485-106", year: "2025", releaseDate: "15/02/2025", retail: 180, market: 106 },
+  { model: "Undefeated x Air Jordan 4 Retro OG SP", brand: "Jordan", colorway: "Deep Green / Clementine / Black / Sail", sku: "IB1519-200", year: "2025", releaseDate: "02/08/2025", retail: 225, market: 176 },
+  { model: "Nike Classic Cortez Leather Forrest Gump", brand: "Nike", colorway: "White / Varsity Red", sku: "749571-154", year: "2018", releaseDate: "02/10/2018", retail: 80, market: 90 },
+  { model: "Sp5der x Adidas Superstar Black", brand: "Adidas", colorway: "Core Black / Core Black / Supplier Colour", sku: "KJ7021", year: "2026", releaseDate: "03/03/2026", retail: 150, market: 182 },
+  { model: "Jordan 1 Crib Bootie Patent Bred", brand: "Jordan", colorway: "Black / Varsity Red / White", sku: "AT3745-063", year: "2021", releaseDate: "30/12/2021", retail: 45, market: 40 },
+  { model: "Air Jordan 1 Retro Low OG Chicago (2025)", brand: "Jordan", colorway: "Varsity Red / Black / Summit White", sku: "HQ6998-600", year: "2025", releaseDate: "15/11/2025", retail: 145, market: 103 },
+  { model: "Nike Air Max 1 Anniversary University Red", brand: "Nike", colorway: "White / University Red", sku: "908375-103", year: "2017", releaseDate: "21/09/2017", retail: 140, market: 150 },
+  { model: "Jordan 1 Crib Bootie Chicago Lost and Found", brand: "Jordan", colorway: "Varsity Red / Black / Sail", sku: "AT3745-612", year: "2022", releaseDate: "19/11/2022", retail: 30, market: 25 },
+  { model: "Pharrell x Adidas NMD Hu Trail Holi Core Black", brand: "Adidas", colorway: "Core Black / Deepest Purple / Core Black", sku: "AC7033", year: "2018", releaseDate: "16/03/2018", retail: 250, market: 180 },
+  { model: "Off-White x Converse Chuck 70 The Ten", brand: "Converse", colorway: "Clear / White / White", sku: "162204C", year: "2018", releaseDate: "12/05/2018", retail: 130, market: 300 },
+  { model: "Alexander Wang x Adidas AW Run Clean", brand: "Adidas", colorway: "Core Black / Core Black / Core Black", sku: "AQ1230", year: "2018", releaseDate: "19/05/2018", retail: 180, market: 100 },
+  { model: "Nike SB Dunk Low Pro Chicago J-Pack", brand: "Nike", colorway: "Varsity Red / White / Varsity Red / Black", sku: "BQ6817-600", year: "2020", releaseDate: "01/09/2020", retail: 95, market: 94 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -129,6 +143,20 @@ backfillImagesFromSku();
 // Nouvelles paires ajoutees via conversation, injectees automatiquement dans le stock existant si absentes
 const PENDING_NEW_ITEMS = [
   { brand: "Nike", model: "SB Dunk Low Pro Wizard of Oz", colorway: "Gym Red / University Red / Multi", size: "41", sku: "FZ1291-600", retail: 125, market: 87 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Clay", colorway: "Clay / Clay / Clay", size: "41⅓", sku: "EG7490", retail: 220, market: 150 },
+  { brand: "Adidas", model: "Yeezy Boost 700 Bright Blue", colorway: "Blue / Orange", size: "38⅔", sku: "GZ0541", retail: 240, market: 155 },
+  { brand: "Jordan", model: "Air Jordan 1 Retro High OG Black Toe Reimagined", colorway: "White / Black / Varsity Red / Sail", size: "41", sku: "DZ5485-106", retail: 180, market: 106 },
+  { brand: "Jordan", model: "Undefeated x Air Jordan 4 Retro OG SP", colorway: "Deep Green / Clementine / Black / Sail", size: "41", sku: "IB1519-200", retail: 225, market: 176 },
+  { brand: "Nike", model: "Classic Cortez Leather Forrest Gump", colorway: "White / Varsity Red", size: "41", sku: "749571-154", retail: 80, market: 90 },
+  { brand: "Adidas", model: "Sp5der x Adidas Superstar Black", colorway: "Core Black / Core Black / Supplier Colour", size: "41⅓", sku: "KJ7021", retail: 150, market: 182 },
+  { brand: "Jordan", model: "Jordan 1 Crib Bootie Patent Bred", colorway: "Black / Varsity Red / White", size: "2C", sku: "AT3745-063", retail: 45, market: 40 },
+  { brand: "Jordan", model: "Air Jordan 1 Retro Low OG Chicago (2025)", colorway: "Varsity Red / Black / Summit White", size: "41", sku: "HQ6998-600", retail: 145, market: 103 },
+  { brand: "Nike", model: "Air Max 1 Anniversary University Red", colorway: "White / University Red", size: "41", sku: "908375-103", retail: 140, market: 150 },
+  { brand: "Jordan", model: "Jordan 1 Crib Bootie Chicago Lost and Found", colorway: "Varsity Red / Black / Sail", size: "1C", sku: "AT3745-612", retail: 30, market: 25 },
+  { brand: "Adidas", model: "Pharrell x Adidas NMD Hu Trail Holi Core Black", colorway: "Core Black / Deepest Purple / Core Black", size: "41⅓", sku: "AC7033", retail: 250, market: 180 },
+  { brand: "Converse", model: "Off-White x Converse Chuck 70 The Ten", colorway: "Clear / White / White", size: "41.5", sku: "162204C", retail: 130, market: 300 },
+  { brand: "Adidas", model: "Alexander Wang x Adidas AW Run Clean", colorway: "Core Black / Core Black / Core Black", size: "41⅓", sku: "AQ1230", retail: 180, market: 100 },
+  { brand: "Nike", model: "SB Dunk Low Pro Chicago J-Pack", colorway: "Varsity Red / White / Varsity Red / Black", size: "41", sku: "BQ6817-600", retail: 95, market: 94 },
 ];
 
 function ensurePendingItemsExist() {
