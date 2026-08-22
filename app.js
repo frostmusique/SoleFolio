@@ -23,7 +23,7 @@ const CATALOG = [
   { model: "Nike Air Max 1 SP Concepts Oil Green", brand: "Nike", colorway: "Oil Green / Multi-Color / Sail", sku: "DN1803-300", year: "2022", releaseDate: "05/03/2022", retail: 170, market: 100 },
   { model: "Adidas YZY Foam RNR Carbon", brand: "Adidas", colorway: "Carbon / Carbon / Carbon", sku: "IG5349", year: "2023", releaseDate: "08/08/2023", retail: 90, market: 45 },
   { model: "Nike Air VaporMax FK Moc 2 ACRONYM", brand: "Nike", colorway: "Black / Black / Volt", sku: "AQ0996-007", year: "2018", releaseDate: "26/04/2018", retail: 225, market: 145 },
-  { model: "Nike Air Force 1 '07 Lemon Wash", brand: "Nike", colorway: "Lemon Wash / Lemon Wash", sku: "DZ4493-700", year: "2022", releaseDate: "21/11/2022", retail: 110, market: 110 },
+  { model: "Nike Air Force 1 '07 Chili Pepper", brand: "Nike", colorway: "Chili Pepper / Chili Pepper", sku: "DZ4493-700", year: "2022", releaseDate: "21/11/2022", retail: 110, market: 110 },
   { model: "Adidas Yeezy Boost 350 V2 Beluga Reflective", brand: "Adidas", colorway: "Grey / Solar Red", sku: "GW1229", year: "2021", releaseDate: "18/12/2021", retail: 220, market: 170 },
   { model: "Adidas Yeezy Boost 350 V2 Oreo", brand: "Adidas", colorway: "Core Black / White", sku: "BY1604", year: "2016", releaseDate: "18/12/2016", retail: 220, market: 68 },
   { model: "Adidas Yeezy 700 V3 Azael", brand: "Adidas", colorway: "Azael", sku: "FW4980", year: "2019", releaseDate: "23/12/2019", retail: 200, market: 110 },
@@ -302,6 +302,28 @@ function fixKnownQuantities() {
   if (changed) persist();
 }
 fixKnownQuantities();
+
+// Correctif ponctuel de nom/colorway : le SKU DZ4493-700 avait ete mal identifie
+// au depart comme "Lemon Wash", alors qu'il s'agit du coloris "Chili Pepper".
+function fixKnownNames() {
+  const knownFixes = {
+    "DZ4493-700": { model: "Air Force 1 '07 Chili Pepper", colorway: "Chili Pepper / Chili Pepper" },
+  };
+  let changed = false;
+  items = items.map((it) => {
+    const m = (it.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
+    if (m && knownFixes.hasOwnProperty(m[1].toUpperCase())) {
+      const fix = knownFixes[m[1].toUpperCase()];
+      if (it.model !== fix.model || it.colorway !== fix.colorway) {
+        changed = true;
+        return { ...it, model: fix.model, colorway: fix.colorway };
+      }
+    }
+    return it;
+  });
+  if (changed) persist();
+}
+fixKnownNames();
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
