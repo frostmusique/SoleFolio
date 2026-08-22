@@ -252,22 +252,29 @@ function mergeDuplicateSkus() {
 }
 mergeDuplicateSkus();
 
-// Correctif ponctuel : ces 2 SKU avaient ete fusionnes par erreur avec une quantite additionnee
-// alors qu'il n'existe qu'un seul exemplaire reel de chacun.
-function fixInflatedQuantities() {
-  const skusToFix = ["332550-163", "FZ1291-600"];
+// Correctifs ponctuels de quantite, confirmes manuellement par l'utilisateur.
+// Ces valeurs ecrasent la quantite calculee automatiquement pour ces SKU precis.
+function fixKnownQuantities() {
+  const knownQuantities = {
+    "332550-163": 1, // Chicago 2013 : une seule paire reelle (fusion en double corrigee)
+    "FZ1291-600": 1, // Wizard of Oz : une seule paire reelle (fusion en double corrigee)
+    "CU9225-100": 2, // Air Force 1 x Supreme White : confirmee x2 paires reelles
+  };
   let changed = false;
   items = items.map((it) => {
     const m = (it.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
-    if (m && skusToFix.includes(m[1].toUpperCase()) && Number(it.quantity) > 1) {
-      changed = true;
-      return { ...it, quantity: 1 };
+    if (m && knownQuantities.hasOwnProperty(m[1].toUpperCase())) {
+      const target = knownQuantities[m[1].toUpperCase()];
+      if (Number(it.quantity) !== target) {
+        changed = true;
+        return { ...it, quantity: target };
+      }
     }
     return it;
   });
   if (changed) persist();
 }
-fixInflatedQuantities();
+fixKnownQuantities();
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
