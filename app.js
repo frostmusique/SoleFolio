@@ -47,6 +47,17 @@ const CATALOG = [
   { model: "Off-White x Converse Chuck 70 The Ten", brand: "Converse", colorway: "Clear / White / White", sku: "162204C", year: "2018", releaseDate: "12/05/2018", retail: 130, market: 300 },
   { model: "Alexander Wang x Adidas AW Run Clean", brand: "Adidas", colorway: "Core Black / Core Black / Core Black", sku: "AQ1230", year: "2018", releaseDate: "19/05/2018", retail: 180, market: 100 },
   { model: "Nike SB Dunk Low Pro Chicago J-Pack", brand: "Nike", colorway: "Varsity Red / White / Varsity Red / Black", sku: "BQ6817-600", year: "2020", releaseDate: "01/09/2020", retail: 95, market: 94 },
+  { model: "Adidas Yeezy Boost 350 V2 Beluga 2.0", brand: "Adidas", colorway: "Grey / Bold Orange / Dark Grey", sku: "AH2203", year: "2017", releaseDate: "25/11/2017", retail: 220, market: 150 },
+  { model: "Adidas Yeezy Boost 350 V2 Cream White", brand: "Adidas", colorway: "Cream White / Cream White", sku: "CP9366", year: "2017", releaseDate: "29/04/2017", retail: 220, market: 75 },
+  { model: "Adidas Yeezy Boost 350 V2 Black Non-Reflective", brand: "Adidas", colorway: "Black / Black / Black", sku: "FU9006", year: "2019", releaseDate: "08/06/2019", retail: 220, market: 90 },
+  { model: "Virgil Abloh Archive x Air Jordan 1 High OG Alaska", brand: "Jordan", colorway: "White / White", sku: "AA3834-100", year: "2026", releaseDate: "03/04/2026", retail: 230, market: 250 },
+  { model: "BBC x Adidas NMD Hu Trail Heart/Mind", brand: "Adidas", colorway: "Cloud White / Scarlet / Blue", sku: "BB9544", year: "2018", releaseDate: "20/10/2018", retail: 250, market: 220 },
+  { model: "Union LA x Air Jordan 1 High OG Chicago Shadow", brand: "Jordan", colorway: "Varsity Red / Black / Shadow Grey", sku: "HV8563-600", year: "2025", releaseDate: "27/02/2025", retail: 200, market: 220 },
+  { model: "Nike Air Max Susan Missing Link", brand: "Nike", colorway: "Multi-Color / Multi-Color", sku: "CK6643-100", year: "2019", releaseDate: "09/04/2019", retail: 170, market: 240 },
+  { model: "Air Jordan 1 High OG Lost & Found Chicago", brand: "Jordan", colorway: "Varsity Red / Black / Sail / Muslin", sku: "DZ5485-612", year: "2022", releaseDate: "19/11/2022", retail: 180, market: 160 },
+  { model: "Nike Dunk Low Chicago Split", brand: "Nike", colorway: "University Red / Black / Light Silver / White", sku: "DZ2536-600", year: "2023", releaseDate: "14/07/2023", retail: 110, market: 100 },
+  { model: "Off-White x Nike Dunk Low Lot 24 of 50", brand: "Nike", colorway: "Sail / Neutral Grey / Washed Coral", sku: "DM1602-119", year: "2021", releaseDate: "09/08/2021", retail: 180, market: 350 },
+  { model: "NBA x Nike Dunk Low EMB Chicago Bulls", brand: "Nike", colorway: "Sail / Black / Chile Red / Black", sku: "DD3363-100", year: "2021", releaseDate: "23/10/2021", retail: 110, market: 90 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -157,6 +168,17 @@ const PENDING_NEW_ITEMS = [
   { brand: "Converse", model: "Off-White x Converse Chuck 70 The Ten", colorway: "Clear / White / White", size: "41.5", sku: "162204C", retail: 130, market: 300 },
   { brand: "Adidas", model: "Alexander Wang x Adidas AW Run Clean", colorway: "Core Black / Core Black / Core Black", size: "41⅓", sku: "AQ1230", retail: 180, market: 100 },
   { brand: "Nike", model: "SB Dunk Low Pro Chicago J-Pack", colorway: "Varsity Red / White / Varsity Red / Black", size: "41", sku: "BQ6817-600", retail: 95, market: 94 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Beluga 2.0", colorway: "Grey / Bold Orange / Dark Grey", size: "41⅓", sku: "AH2203", retail: 220, market: 150 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Cream White", colorway: "Cream White / Cream White", size: "41⅓", sku: "CP9366", retail: 220, market: 75 },
+  { brand: "Adidas", model: "Yeezy Boost 350 V2 Black Non-Reflective", colorway: "Black / Black / Black", size: "41⅓", sku: "FU9006", retail: 220, market: 90 },
+  { brand: "Jordan", model: "Virgil Abloh Archive x Air Jordan 1 High OG Alaska", colorway: "White / White", size: "41", sku: "AA3834-100", retail: 230, market: 250 },
+  { brand: "Adidas", model: "BBC x Adidas NMD Hu Trail Heart/Mind", colorway: "Cloud White / Scarlet / Blue", size: "41⅓", sku: "BB9544", retail: 250, market: 220 },
+  { brand: "Jordan", model: "Union LA x Air Jordan 1 High OG Chicago Shadow", colorway: "Varsity Red / Black / Shadow Grey", size: "41", sku: "HV8563-600", retail: 200, market: 220 },
+  { brand: "Nike", model: "Air Max Susan Missing Link", colorway: "Multi-Color / Multi-Color", size: "41", sku: "CK6643-100", retail: 170, market: 240 },
+  { brand: "Jordan", model: "Air Jordan 1 High OG Lost & Found Chicago", colorway: "Varsity Red / Black / Sail / Muslin", size: "41", sku: "DZ5485-612", retail: 180, market: 160 },
+  { brand: "Nike", model: "Dunk Low Chicago Split", colorway: "University Red / Black / Light Silver / White", size: "41", sku: "DZ2536-600", retail: 110, market: 100 },
+  { brand: "Nike", model: "Off-White x Nike Dunk Low Lot 24 of 50", colorway: "Sail / Neutral Grey / Washed Coral", size: "41", sku: "DM1602-119", retail: 180, market: 350 },
+  { brand: "Nike", model: "NBA x Nike Dunk Low EMB Chicago Bulls", colorway: "Sail / Black / Chile Red / Black", size: "41", sku: "DD3363-100", retail: 110, market: 90 },
 ];
 
 function ensurePendingItemsExist() {
@@ -207,10 +229,12 @@ function mergeDuplicateSkus() {
       return;
     }
     changed = true;
-    // garde la fiche la plus complete (avec photo si possible) comme base, additionne les quantites
+    // garde la fiche la plus complete (avec photo si possible) comme base
+    // NE PAS additionner les quantites : un doublon de fiche vient d'un import en double,
+    // pas d'une vraie deuxieme paire. On garde la quantite max existante (jamais gonflee).
     const base = group.find((g) => g.imageUrl) || group[0];
-    const totalQty = group.reduce((sum, g) => sum + Number(g.quantity || 1), 0);
-    merged.push({ ...base, quantity: totalQty });
+    const maxQty = Math.max(...group.map((g) => Number(g.quantity || 1)));
+    merged.push({ ...base, quantity: maxQty });
   });
 
   if (changed) {
@@ -219,6 +243,23 @@ function mergeDuplicateSkus() {
   }
 }
 mergeDuplicateSkus();
+
+// Correctif ponctuel : ces 2 SKU avaient ete fusionnes par erreur avec une quantite additionnee
+// alors qu'il n'existe qu'un seul exemplaire reel de chacun.
+function fixInflatedQuantities() {
+  const skusToFix = ["332550-163", "FZ1291-600"];
+  let changed = false;
+  items = items.map((it) => {
+    const m = (it.notes || "").match(/SKU\s+([A-Z0-9-]+)/i);
+    if (m && skusToFix.includes(m[1].toUpperCase()) && Number(it.quantity) > 1) {
+      changed = true;
+      return { ...it, quantity: 1 };
+    }
+    return it;
+  });
+  if (changed) persist();
+}
+fixInflatedQuantities();
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
