@@ -281,6 +281,7 @@ function fixKnownQuantities() {
     "332550-163": 1, // Chicago 2013 : une seule paire reelle (fusion en double corrigee)
     "FZ1291-600": 1, // Wizard of Oz : une seule paire reelle (fusion en double corrigee)
     "CU9225-100": 2, // Air Force 1 x Supreme White : confirmee x2 paires reelles
+    "FW4980": 2, // Yeezy 700 V3 Azael : confirmee x2 paires reelles
   };
   let changed = false;
   items = items.map((it) => {
