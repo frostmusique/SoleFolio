@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=20" />
+<link rel="stylesheet" href="style.css?v=21" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
 </head>
 <body>
@@ -190,7 +190,11 @@
       <div class="detail-extra">
         <div class="detail-extra-row">
           <span>Quantité</span>
-          <span id="detailQuantity"></span>
+          <span style="display:flex;align-items:center;gap:10px;">
+            <button id="qtyMinusBtn" type="button" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--card-border);background:var(--bg);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;">−</button>
+            <span id="detailQuantity" style="min-width:24px;text-align:center;"></span>
+            <button id="qtyPlusBtn" type="button" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--card-border);background:var(--bg);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;">+</button>
+          </span>
         </div>
         <div class="detail-extra-row">
           <span>Date d'achat</span>
@@ -209,6 +213,6 @@
   <img src="assets/logo.png" alt="SoleFolio" class="lightbox-image" />
 </div>
 
-<script src="app.js?v=20"></script>
+<script src="app.js?v=21"></script>
 </body>
 </html>

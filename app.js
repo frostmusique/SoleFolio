@@ -286,6 +286,7 @@ function fixKnownQuantities() {
     "GW1229": 2, // Beluga Reflective : confirmee x2 paires reelles
     "BY9612": 3, // Bred OG 2016 : confirmee x3 paires reelles (photographiee 3 fois)
     "CP9652": 2, // Bred restock : x2 confirmees, a verifier si 3eme paire existe
+    "GY7164": 2, // Dazzling Blue : x2 confirmees (vue en taille 41⅓ ET en taille 38, forcement 2 boites distinctes)
   };
   let changed = false;
   items = items.map((it) => {
@@ -549,6 +550,21 @@ function openDetail(item) {
   $("detailQuantity").textContent = `x${q}`;
   $("detailDate").textContent = dateLabel;
   $("detailNotes").textContent = item.notes || "";
+
+  $("qtyMinusBtn").onclick = () => {
+    const current = Number(item.quantity || 1);
+    if (current <= 1) return;
+    item.quantity = current - 1;
+    persist();
+    render();
+    openDetail(item);
+  };
+  $("qtyPlusBtn").onclick = () => {
+    item.quantity = Number(item.quantity || 1) + 1;
+    persist();
+    render();
+    openDetail(item);
+  };
 
   $("detailEditBtn").onclick = () => {
     $("detailOverlay").hidden = true;
