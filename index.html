@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=15" />
+<link rel="stylesheet" href="style.css?v=16" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
 </head>
 <body>
@@ -41,7 +41,8 @@
     </button>
     <div class="detail-body" style="padding-top:50px;">
       <h2 class="detail-model" style="font-size:18px;">Données brutes du stock</h2>
-      <p class="detail-meta" style="margin-bottom:12px;">Copie tout ce texte et colle-le dans le chat.</p>
+      <p class="detail-meta" style="margin-bottom:12px;">Appuie sur le bouton pour copier, puis colle-le dans le chat.</p>
+      <button id="copyExportBtn" class="btn-primary btn-full" style="margin-bottom:12px;">Copier les données</button>
       <textarea id="exportText" readonly rows="14" style="width:100%;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:10px;border-radius:10px;border:1px solid var(--card-border);background:var(--bg);color:var(--ink);"></textarea>
     </div>
   </div>
@@ -208,6 +209,6 @@
   <img src="assets/logo.png" alt="SoleFolio" class="lightbox-image" />
 </div>
 
-<script src="app.js?v=15"></script>
+<script src="app.js?v=16"></script>
 </body>
 </html>

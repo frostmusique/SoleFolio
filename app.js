@@ -555,6 +555,34 @@ $("exportOverlay").addEventListener("click", (e) => {
   if (e.target.id === "exportOverlay") $("exportOverlay").hidden = true;
 });
 
+$("copyExportBtn").addEventListener("click", async () => {
+  const btn = $("copyExportBtn");
+  const text = $("exportText").value;
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      // Repli pour navigateurs sans API Clipboard
+      const ta = $("exportText");
+      ta.removeAttribute("readonly");
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      document.execCommand("copy");
+      ta.setAttribute("readonly", "true");
+    }
+    btn.textContent = "Copié ✓";
+    setTimeout(() => {
+      btn.textContent = "Copier les données";
+    }, 2000);
+  } catch (err) {
+    btn.textContent = "Échec — sélectionne le texte manuellement";
+    setTimeout(() => {
+      btn.textContent = "Copier les données";
+    }, 3000);
+  }
+});
+
 $("resetBtn").addEventListener("click", () => {
   if (confirm("Réinitialiser le stock avec les 14 paires par défaut (dates et prix à jour) ? Toute modification ou photo déjà ajoutée sera perdue.")) {
     localStorage.removeItem(STORAGE_KEY);
