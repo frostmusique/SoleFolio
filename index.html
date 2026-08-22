@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=7" />
+<link rel="stylesheet" href="style.css?v=8" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
 </head>
 <body>
@@ -20,6 +20,9 @@
     <img src="assets/logo.png" alt="SoleFolio" class="brand-mark" id="logoTrigger" />
   </div>
   <div class="header-actions">
+    <button id="exportBtn" class="btn-reset" aria-label="Exporter les données" title="Exporter les données">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     <button id="resetBtn" class="btn-reset" aria-label="Réinitialiser le stock" title="Réinitialiser le stock">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 4v6h6M20 20v-6h-6M4.5 15a8 8 0 0014.5 3.4M19.5 9a8 8 0 00-14.5-3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Reset
@@ -30,6 +33,19 @@
     </button>
   </div>
 </header>
+
+<div id="exportOverlay" class="modal-overlay" hidden>
+  <div class="detail-modal" style="max-width:520px;">
+    <button id="closeExport" class="detail-close" aria-label="Fermer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="detail-body" style="padding-top:50px;">
+      <h2 class="detail-model" style="font-size:18px;">Données brutes du stock</h2>
+      <p class="detail-meta" style="margin-bottom:12px;">Copie tout ce texte et colle-le dans le chat.</p>
+      <textarea id="exportText" readonly rows="14" style="width:100%;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:10px;border-radius:10px;border:1px solid var(--card-border);background:var(--bg);color:var(--ink);"></textarea>
+    </div>
+  </div>
+</div>
 
 <main class="container">
 
@@ -190,6 +206,6 @@
   <img src="assets/logo.png" alt="SoleFolio" class="lightbox-image" />
 </div>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

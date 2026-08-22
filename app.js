@@ -390,6 +390,17 @@ function closeModal() {
 
 $("addBtn").addEventListener("click", () => openModal(null));
 
+$("exportBtn").addEventListener("click", () => {
+  $("exportText").value = JSON.stringify(items, null, 2);
+  $("exportOverlay").hidden = false;
+});
+$("closeExport").addEventListener("click", () => {
+  $("exportOverlay").hidden = true;
+});
+$("exportOverlay").addEventListener("click", (e) => {
+  if (e.target.id === "exportOverlay") $("exportOverlay").hidden = true;
+});
+
 $("resetBtn").addEventListener("click", () => {
   if (confirm("Réinitialiser le stock avec les 14 paires par défaut (dates et prix à jour) ? Toute modification ou photo déjà ajoutée sera perdue.")) {
     localStorage.removeItem(STORAGE_KEY);
