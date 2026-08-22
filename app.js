@@ -406,7 +406,8 @@ function ticketHTML(item) {
       <div>
         <p class="ticket-brand">${escapeHTML(item.brand || "—")}</p>
         <h3 class="ticket-model">${escapeHTML(item.model || "Modèle sans nom")}</h3>
-        <p class="ticket-meta">${escapeHTML(item.colorway || "")}${item.size ? " · EU " + escapeHTML(item.size) : ""}</p>
+        <p class="ticket-meta">${escapeHTML(item.colorway || "")}</p>
+        ${item.size ? `<p class="ticket-size">Taille EU ${escapeHTML(item.size)}</p>` : ""}
       </div>
       <div class="ticket-divider">
         <span>${dateLabel}</span>
