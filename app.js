@@ -32,6 +32,7 @@ const CATALOG = [
   { model: "Adidas Yeezy Boost 350 V2 Dazzling Blue", brand: "Adidas", colorway: "Core Black / Dazzling Blue", sku: "GY7164", year: "2022", releaseDate: "26/02/2022", retail: 220, market: 140 },
   { model: "Adidas Yeezy Boost 700 V1 Kids Wave Runner", brand: "Adidas", colorway: "Magnet Grey / White / Black", sku: "FU9005", year: "2017", releaseDate: "18/11/2017", retail: 180, market: 110 },
   { model: "Adidas Yeezy Foam RNNR MX Cinder", brand: "Adidas", colorway: "MX Cinder (brown/tan)", sku: "ID4126", year: "2023", releaseDate: "31/05/2023", retail: 90, market: 65 },
+  { model: "Nike SB Dunk Low Pro Wizard of Oz", brand: "Nike", colorway: "Gym Red / University Red / Multi", sku: "FZ1291-600", year: "2024", releaseDate: "23/12/2024", retail: 125, market: 87 },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -124,6 +125,37 @@ function backfillImagesFromSku() {
   if (changed) persist();
 }
 backfillImagesFromSku();
+
+// Nouvelles paires ajoutees via conversation, injectees automatiquement dans le stock existant si absentes
+const PENDING_NEW_ITEMS = [
+  { brand: "Nike", model: "SB Dunk Low Pro Wizard of Oz", colorway: "Gym Red / University Red / Multi", size: "41", sku: "FZ1291-600", retail: 125, market: 87 },
+];
+
+function ensurePendingItemsExist() {
+  let changed = false;
+  PENDING_NEW_ITEMS.forEach((p) => {
+    const exists = items.some((it) => (it.notes || "").toUpperCase().includes(`SKU ${p.sku}`.toUpperCase()));
+    if (exists) return;
+    changed = true;
+    const now = Date.now();
+    items.push({
+      id: now.toString() + Math.random().toString(36).slice(2, 7),
+      createdAt: now,
+      brand: p.brand,
+      model: p.model,
+      colorway: p.colorway,
+      size: p.size,
+      quantity: 1,
+      imageUrl: IMAGES_BY_SKU[p.sku] || "",
+      purchaseDate: "",
+      purchasePrice: p.retail || "",
+      marketPrice: p.market || "",
+      notes: `SKU ${p.sku} · retail ${p.retail}€`,
+    });
+  });
+  if (changed) persist();
+}
+ensurePendingItemsExist();
 
 function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
