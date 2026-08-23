@@ -42,6 +42,8 @@ body{
 
 .lightbox-overlay{
   position:fixed;inset:0;
+  height:100vh;
+  height:100dvh;
   background:rgba(0,0,0,0.75);
   display:flex;
   align-items:center;
@@ -490,6 +492,8 @@ body{
 /* Modal */
 .modal-overlay{
   position:fixed;inset:0;
+  height:100vh;
+  height:100dvh;
   background:rgba(58,58,62,0.45);
   display:flex;
   align-items:flex-end;

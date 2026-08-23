@@ -589,13 +589,18 @@ function openDetail(item) {
   };
 
   $("detailOverlay").hidden = false;
+  document.body.style.overflow = "hidden";
 }
 
 $("closeDetail").addEventListener("click", () => {
   $("detailOverlay").hidden = true;
+  document.body.style.overflow = "";
 });
 $("detailOverlay").addEventListener("click", (e) => {
-  if (e.target.id === "detailOverlay") $("detailOverlay").hidden = true;
+  if (e.target.id === "detailOverlay") {
+    $("detailOverlay").hidden = true;
+    document.body.style.overflow = "";
+  }
 });
 
 function openModal(item) {
