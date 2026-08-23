@@ -79,6 +79,7 @@ const $ = (id) => document.getElementById(id);
 
 // Photos ajoutees manuellement (uploadees par l'utilisateur), associees par SKU
 const IMAGES_BY_SKU = {
+  "IE1663": "assets/ie1663.jpeg",
   "HP5347": "assets/hp5347.jpeg",
   "HP8739": "assets/hp8739.jpeg",
   "DD3363-100": "assets/dd3363-100.jpeg",
