@@ -310,6 +310,7 @@ function fixKnownQuantities() {
     "HP8739": 2, // Yeezy Foam RNR Onyx : x2 confirmees (2 PO# distincts, PO#131555488 et PO#131555507, meme taille US7)
     "HP5347": 2, // Yeezy Foam RNR Onyx Kids : x2 confirmees (2 PO# distincts, PO#131555506 et PO#131555508)
     "ID5103": 2, // Yeezy Slide Dark Onyx : x2 confirmees (2 PO# distincts, PO#131408678 et PO#131408665)
+    "IE1663": 2, // Yeezy Knit RNR Fade Onyx : x2 confirmees par l'utilisateur (meme PO# sur les 2 photos, mais PO# = numero de commande/lot, pas un identifiant unique par boite)
     "ID4126": 2, // Yeezy Foam RNNR MX Cinder : confirmee x2 paires reelles
   };
   let changed = false;
