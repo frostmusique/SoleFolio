@@ -480,6 +480,17 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
+function parseReleaseDate(item) {
+  const rd = item.releaseDate;
+  if (rd && /^\d{2}\/\d{2}\/\d{4}$/.test(rd)) {
+    const [d, m, y] = rd.split("/").map(Number);
+    return new Date(y, m - 1, d).getTime();
+  }
+  const y = Number(item.year);
+  if (y) return new Date(y, 0, 1).getTime();
+  return 0;
+}
+
 function getFilteredSorted() {
   let list = [...items];
   if (currentBrandFilter !== "all") {
@@ -504,6 +515,12 @@ function getFilteredSorted() {
       break;
     case "name":
       list.sort((a, b) => (a.model || "").localeCompare(b.model || ""));
+      break;
+    case "release_asc":
+      list.sort((a, b) => parseReleaseDate(a) - parseReleaseDate(b));
+      break;
+    case "release_desc":
+      list.sort((a, b) => parseReleaseDate(b) - parseReleaseDate(a));
       break;
     default:
       list.sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
