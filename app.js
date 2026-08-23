@@ -305,7 +305,7 @@ function fixKnownQuantities() {
     "B75571": 2, // Wave Runner : confirmee x2 paires reelles
     "GW1229": 2, // Beluga Reflective : confirmee x2 paires reelles
     "BY9612": 3, // Bred OG 2016 : x3 confirmees (3 PO# distincts : 129918535, 129918533, + le 3eme deja identifie)
-    "CP9652": 2, // Bred restock : x2 confirmees, a verifier si 3eme paire existe
+    "CP9652": 2, // Bred restock : x2 confirmees (tailles 42 et 41⅓ vues, pas de preuve d'une 3eme paire)
     "GY7164": 2, // Dazzling Blue : x2 confirmees (vue en taille 41⅓ ET en taille 38, forcement 2 boites distinctes)
     "HP8739": 2, // Yeezy Foam RNR Onyx : x2 confirmees (2 PO# distincts, PO#131555488 et PO#131555507, meme taille US7)
     "HP5347": 2, // Yeezy Foam RNR Onyx Kids : x2 confirmees (2 PO# distincts, PO#131555506 et PO#131555508)
